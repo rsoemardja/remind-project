@@ -1,0 +1,10 @@
+<% valid_notes = ['Work', 'Study', 'Event', 'Shopping', 'Friends', 'Holiday', 'Going out','Other']  %>
+<%= simple_form_for [@note] do |f| %>
+  <%= f.input :title, placeholder: 'Notes title' %>
+  <%= f.input :category, collection: valid_notes %>
+  <%= f.input :description, placeholder: 'Description' %>
+  <%= f.input :due_date, placeholder: 'Due date' %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit class: 'btn btn-green' %>
+  
+<% end %>
