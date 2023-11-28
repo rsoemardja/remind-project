@@ -11,15 +11,23 @@ Rails.application.routes.draw do
   post '/notes/:note_id/notes/:id/show_confirm', to: "notes#confirm", as: "confirm"
   post '/notes/:note_id/notes/:id/show_reject', to: "notes#reject", as: "reject"
 
+  post '/tasks/:task_id/tasks/:id/show_confirm', to: "tasks#confirm", as: "confirm_tasks"
+  post '/tasks/:task_id/tasks/:id/show_reject', to: "tasks#reject", as: "reject_tasks"
 
   # root "posts#index"
   resources :users do
     resources :posts, only: %i[index new create]
   end
+
   resources :notes do
     resources :notes, only: [:new, :create, :show]
   end
   resources :notes, only: [:destroy, :index]
 
+
+  resources :tasks do
+    resources :tasks, only: [:new, :create, :show]
+  end
+  resources :tasks, only: [:destroy, :index]
   
 end
