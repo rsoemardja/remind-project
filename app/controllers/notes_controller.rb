@@ -5,6 +5,7 @@ class NotesController < ApplicationController
   end
 
   def show
+    set_note
   end
 
   def new
