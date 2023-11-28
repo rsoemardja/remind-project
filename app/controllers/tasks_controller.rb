@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    set_task
   end
 
   def new
@@ -25,16 +26,20 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      redirect_to @task
-    else
-      render :edit
-    end
+    # if @task.update(task_params)
+    #   redirect_to @task
+    # else
+    #   render :edit
+    # end
+    set_task
+    @task.update(task_params)
+    redirect_to tasks_path(@task)
   end
 
   def destroy
+    set_task
     @task.destroy
-    redirect_to tasks_path
+    redirect_to tasks_path, status: :see_other
   end
 
   private
@@ -44,6 +49,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:title, :description, :categories, :due_date)
   end
 end
