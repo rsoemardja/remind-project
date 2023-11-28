@@ -1,9 +1,8 @@
-<h1>All Notes</h1>
+<h3>All Notes</h3>
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Actions</th>
+      <th>RE:mind me</th>
     </tr>
   </thead>
   <tbody>
@@ -11,13 +10,13 @@
       <tr>
         <td><%= note.title %></td>
         <td>
-          <%= link_to 'Show', note %>
-          <%= link_to 'Edit', edit_note_path(note) %>
-          <%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Detail', note, class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_note_path(note), class: 'btn btn-primary' %>
+          <%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Note', new_note_path %>
+<%= link_to 'New Note', new_note_path, class: 'btn btn-success' %>
