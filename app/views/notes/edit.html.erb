@@ -1,0 +1,13 @@
+<%= render 'shared/navbar' %>
+<div class="container">
+  <div class="row justify-content-center">
+  <div class="col-12 col-sm- 7">
+    <div class="form-login">̉
+<h3>Edit Note</h3>
+<%= render 'note_form', note: @note %>
+<%= link_to 'Back', notes_path %>
+  </div>
+  </div>
+  </div>
+  <%= render 'shared/footer' %>
+</div>

@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_003224) do
   create_table "notes", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "categories"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_003224) do
     t.string "title"
     t.text "description"
     t.date "due_date"
-    t.string "categories"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
