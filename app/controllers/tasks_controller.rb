@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-  before_action :set_note, only: %i[show edit update destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
-    @task = Note.all
+    @tasks = Task.all
   end
 
   def show
@@ -18,12 +18,12 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path(@task)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @task = Task.find(params[:id])
+    set_task
   end
 
   def update
@@ -50,6 +50,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :categories, :due_date, :completed)
+    params.require(:task).permit(:title, :description, :category, :due_date, :completed)
   end
 end

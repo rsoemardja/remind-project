@@ -3,10 +3,10 @@
   <div class="row justify-content-center">
   <div class="col-12 col-sm- 7">
     <div class="form-login">̉
-        <h3>Create a new note</h3>
-        <%= render 'note_form' %>
-    </div>
+<h3>Edit Tasks</h3>
+<%= render 'task_form', task: @task %>
+<%= link_to 'Back', tasks_path %>
+  </div>
   </div>
   </div>
 </div>
-
