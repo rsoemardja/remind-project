@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   def index
+    @user = current_user
     @notes = Note.all
   end
 
@@ -9,6 +10,7 @@ class NotesController < ApplicationController
   end
 
   def new
+    @user = current_user
     @note = Note.new
   end
 
