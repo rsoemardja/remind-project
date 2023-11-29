@@ -55,9 +55,9 @@ class NotesController < ApplicationController
     # Finds model per id
     @note = Note.find(params[:id])
   end
-end
 
   def note_params
     params.require(:note).permit(:title, :description, :category, :due_date, photos: [])
   end
+
 end
