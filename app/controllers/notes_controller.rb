@@ -33,6 +33,10 @@ class NotesController < ApplicationController
     #   redirect_to notes_path(@note)
     # else
     #   render :edit
+
+    #     redirect_to @note
+    # else
+    #     render :edit
     # end
     set_note
     @note.update(note_params)
@@ -48,10 +52,11 @@ class NotesController < ApplicationController
   private
 
   def set_note
+    # Finds model per id
     @note = Note.find(params[:id])
   end
+end
 
-    
   def note_params
     params.require(:note).permit(:title, :description, :category, :due_date, photos: [])
   end
