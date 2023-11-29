@@ -171,5 +171,5 @@ task = Task.new(
   user: User.all.sample
 
 )
-task.photos.attach(io: file3, filename: '2-anniversary-157248_1280_hpmnlq.png', content_type: 'image/png')
+task.photos.attach(io: file3, filename: 'boy-1300136_1280_xi5flw.png', content_type: 'image/png')
 task.save!
