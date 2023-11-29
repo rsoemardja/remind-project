@@ -3,8 +3,8 @@
   <%# <%= f.input :category, collection: valid_task %>
   <%= f.input :description, placeholder: 'Description' %>
   <%= f.input :due_date, placeholder: 'Due date' %>
-  <%# <%= f.input :photo, as: :file %>
-   <%= f.input :completed, as: :boolean %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :completed, as: :boolean %>
   <%= f.submit class: 'btn btn-primary'%>
   
 <% end %>
