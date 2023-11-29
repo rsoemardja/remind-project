@@ -8,7 +8,10 @@
   <tbody>
     <% @notes.each do |note| %>
       <tr>
-        <td><%= note.title %></td>
+        <td><%= note.title %></td> <br>
+        <% note.photos.each do |photo| %>
+       <br> <td><%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill)  %></td>
+      <% end %>
         <td>
           <%= link_to 'Detail', note, class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_note_path(note), class: 'btn btn-primary' %>
