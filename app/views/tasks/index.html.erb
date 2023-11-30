@@ -1,25 +1,31 @@
-<h3>All Tasks</h3>
-<table>
-  <thead>
-    <tr>
-      <th>RE:mind MyTasks</th>
-    </tr>
-  </thead>
-  <tbody>
-   <% @tasks.each do |task| %>
+<html>
+<head>
+  <title>Tasks</title>
+</head>
+<body>
+  <h3>All Tasks</h3>
+    <thead>
       <tr>
-        <td><%= task.title %></td><br>
-        <% task.photos.each do |photo| %>
-        <br><td><%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill)  %></td>
-      <% end %>
-        <td>
-          <%= link_to 'Detail', task_path(task), class: 'btn btn-primary' %>
-          <%= link_to 'Edit', edit_task_path(task), class: 'btn btn-primary' %>
-          <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-        </td>
+        <th>RE:mind MyTasks</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New Task', new_task_path(@user), class: 'btn btn-success' %>
+    </thead>
+      <table class="card-product">
+      <tbody>
+      <% @tasks.each do |task| %>
+      <tr>
+        <% task.photos.each do |photo| %>
+          <td><%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %></td>
+          <td><%= task.title %></td>
+          <% end %>
+          <td>
+            <%= link_to 'Detail', task_path(task), class: 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_task_path(task), class: 'btn btn-primary' %>
+            <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+    <%= link_to 'New Task', new_task_path(@user), class: 'btn btn-success' %>
+  </body>
+</html>
