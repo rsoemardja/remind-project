@@ -1,10 +1,10 @@
+<% valid_category = ['Work', 'Study', 'Event', 'Family', 'Party', 'Home Work','To-Do', 'Shopping']  %>
 <%= simple_form_for [@task] do |f| %>
   <%= f.input :title, placeholder: 'Task title' %>
-  <%# <%= f.input :category, collection: valid_task %>
+   <%= f.input :category, collection: valid_category %>
   <%= f.input :description, placeholder: 'Description' %>
   <%= f.input :due_date, placeholder: 'Due date' %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :completed, as: :boolean %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %></div>
+   <%= f.input :completed, as: :boolean, label: 'Completed' %>
   <%= f.submit class: 'btn btn-primary'%>
-  
 <% end %>
