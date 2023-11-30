@@ -1,5 +1,7 @@
+require 'timers'
+
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: %i[show edit update destroy]
 
   def index
     @user = current_user
@@ -12,6 +14,16 @@ class TasksController < ApplicationController
   def new
     @user = current_user
     @task = Task.new
+    timers = Timers::Group.new
+    timers.every(60.minutes) do
+      # Check if 24 hours have elapsed
+      if Time.now >= created_at + 24.hours
+        # Perform the action you want to execute after 24 hours
+        # ...
+        timers.stop
+      end
+      timers.start
+    end
   end
 
   def create

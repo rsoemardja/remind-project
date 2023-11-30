@@ -16,6 +16,12 @@
           <%= link_to 'Detail', task_path(task), class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_task_path(task), class: 'btn btn-primary' %>
           <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <div class="col pt-1" countdown_timer>
+            <span class="days"></span> days
+            <span class="hours"></span> hours
+            <span class="minutes"></span> minutes
+            <span class="seconds"></span> seconds
+          </div>
         </td>
       </tr>
     <% end %>

@@ -1,8 +1,20 @@
+require 'timers'
+
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: %i[show edit update destroy]
   def index
     @user = current_user
     @notes = Note.all
+    timers = Timers::Group.new
+    timers.every(60.minutes) do
+      # Check if 24 hours have elapsed
+      if Time.now >= created_at + 24.hours
+        # Perform the action you want to execute after 24 hours
+        # ...
+        timers.stop
+      end
+      timers.start
+    end
   end
 
   def show
@@ -22,8 +34,16 @@ class NotesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    timers.every(60.minutes) do
+      # Check if 24 hours have elapsed
+      if Time.now >= created_at + 24.hours
+        # Perform the action you want to execute after 24 hours
+        # ...
+        timers.stop
+      end
+      timers.start
+    end
   end
-
 
   def edit
     set_note
@@ -35,7 +55,6 @@ class NotesController < ApplicationController
     #   redirect_to notes_path(@note)
     # else
     #   render :edit
-
     #     redirect_to @note
     # else
     #     render :edit
@@ -61,5 +80,4 @@ class NotesController < ApplicationController
   def note_params
     params.require(:note).permit(:title, :description, :category, :due_date, photos: [])
   end
-
 end
