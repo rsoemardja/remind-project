@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get "pages/dashboard", to: "pages#dashboard", as: "dashboard"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # resources :users
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :tasks, as: :tasks
   resources :notes, as: :notes
+  resources :dashboard, only: [:index]
 
 
   # resources :users do
