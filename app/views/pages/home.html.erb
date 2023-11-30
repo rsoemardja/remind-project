@@ -8,7 +8,10 @@
       <div class="container" text-align="center">
         <h1>RE:mind </strong></h1>
           <h1>Your personal reminder assistant </strong></h1>
-         <div class="center">   <%= link_to 'Sign up Now', new_user_registration_path(@user), class: 'btn btn-gradient' %> </div>
+          <div class="center">   <%= link_to 'Sign up Now', new_user_registration_path(@user), class: 'btn btn-gradient' %>
+            
+          </div>
+          <div class="center"> <%= link_to 'Already have an account? Login',  new_user_session_path(@user) %></div>
           
       </div>
   </div>
