@@ -1,10 +1,12 @@
 <h3>All Notes</h3>
-<table>
-  <thead>
-    <tr>
+<%# <table>
+  <%# <thead>
+    <%# <tr>
       <th>RE:mind My Notes</th>
-    </tr>
-  </thead>
+    </tr> %>
+  <%# </thead>  %>
+
+<div>
   <tbody>
     <% @notes.each do |note| %>
       <tr>
@@ -23,3 +25,42 @@
 </table>
 
 <%= link_to 'New Note', new_note_path(@user), class: 'btn btn-success' %>
+
+</div>
+
+
+
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+
+
+
+<div class="card-product">
+  <div class="card-product-infos">
+    <tbody>
+        <% @notes.each do |note| %>
+          <tr>
+          <td><%= note.title %></td> <br>
+            <% note.photos.each do |photo| %>
+              <br> <td><%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill)  %></td>
+            <% end %>
+          <td>
+          <%= link_to 'Detail', note_path(note), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_note_path(note), class: 'btn btn-primary' %>
+          <%= link_to 'Delete', note_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+      </tr>
+     <% end %>
+      </tbody>
+      </table>
+      </div>
+
+<%= link_to 'New Note', new_note_path(@user), class: 'btn btn-success' %>
+
+</div>
