@@ -9,11 +9,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  #post '/notes/:note_id/notes/:id/show_confirm', to: "notes#confirm", as: "confirm"
-  #post '/notes/:note_id/notes/:id/show_reject', to: "notes#reject", as: "reject"
-
-  #post '/tasks/:task_id/tasks/:id/show_confirm', to: "tasks#confirm", as: "confirm_tasks"
-  #post '/tasks/:task_id/tasks/:id/show_reject', to: "tasks#reject", as: "reject_tasks"
+  # post '/notes/:note_id/notes/:id/show_confirm', to: "notes#confirm", as: "confirm"
+  # post '/notes/:note_id/notes/:id/show_reject', to: "notes#reject", as: "reject"
+  # post '/tasks/:task_id/tasks/:id/show_confirm', to: "tasks#confirm", as: "confirm_tasks"
+  # post '/tasks/:task_id/tasks/:id/show_reject', to: "tasks#reject", as: "reject_tasks"
 
   # root "posts#index"
 
@@ -21,10 +20,8 @@ Rails.application.routes.draw do
   resources :notes, as: :notes
   resources :dashboard, only: [:index]
 
-
   # resources :users do
   # resources :tasks, as: :tasks
   # resources :notes, as: :notes
   # end
-  
 end
