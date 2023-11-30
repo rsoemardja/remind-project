@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: %i[show edit update destroy]
+
   def index
     @user = current_user
     @notes = Note.all
@@ -24,22 +25,11 @@ class NotesController < ApplicationController
     end
   end
 
-
   def edit
     set_note
   end
 
   def update
-    # set_note
-    # if @note.update(note_params)
-    #   redirect_to notes_path(@note)
-    # else
-    #   render :edit
-
-    #     redirect_to @note
-    # else
-    #     render :edit
-    # end
     set_note
     @note.update(note_params)
     redirect_to notes_path(@note)
@@ -61,5 +51,4 @@ class NotesController < ApplicationController
   def note_params
     params.require(:note).permit(:title, :description, :category, :due_date, photos: [])
   end
-
 end

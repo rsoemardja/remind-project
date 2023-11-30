@@ -1,16 +1,8 @@
 <h3>All Notes</h3>
-<%# <table>
-  <%# <thead>
-    <%# <tr>
-      <th>RE:mind My Notes</th>
-    </tr> %>
-  <%# </thead>  %>
-
-<div>
+<table class="card-product">
   <tbody>
       <% @notes.each do |note| %>
       <tr>
-        <td><%= note.title %></td> <br>
         <% note.photos.each do |photo| %>
        <br> <td><%= cl_image_tag(photo.key, height: 150, width: 200, crop: :fill)  %></td>
       <% end %>
@@ -20,32 +12,57 @@
           <%= link_to 'Delete', note_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
-            <% end %>
-          </tbody>
-  
-          </table>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to 'New Note', new_note_path(@user), class: 'btn btn-success' %>
-
-</div>
-
-
-
-
-
-
-
-<div class="card-product">
-  <% @notes.each do |note| %>
+<% @notes.each do |note| %>
+  <div class="card-product">
+    <% note.photos.each do |photo| %>
+      <div class="card-product-image">
+        <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
+      </div>
+    <% end %>
     <div class="card-product-infos">
       <h2><%= note.title %></h2>
       <p><%= note.description %></p>
+        <td>
+          <%= link_to 'Detail', note_path(note), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_note_path(note), class: 'btn btn-primary' %>
+          <%= link_to 'Delete', note_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
     </div>
-  <div class="card-product-img">
-      <% note.photos.each do |photo| %>
-        <%= cl_image_tag(photo.key) %>
-    <% end %>
   </div>
-  <% end %>
+<% end %>
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
 </div>
 
+<div class="card-product">
+  <div class="card-product-infos">
+    <table>
+      <tbody>
+        <% @notes.each do |note| %>
+          <tr>
+            <td><%= note.title %></td>
+            <% note.photos.each do |photo| %>
+              <td><%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %></td>
+            <% end %>
+            <td>
+              <%= link_to 'Detail', note_path(note), class: 'btn btn-primary' %>
+              <%= link_to 'Edit', edit_note_path(note), class: 'btn btn-primary' %>
+              <%= link_to 'Delete', note_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to 'New Note', new_note_path(@user), class: 'btn btn-success' %>
