@@ -1,12 +1,11 @@
 <h3>All Notes</h3>
 <table class="card-product">
   <tbody>
-    <% @notes.each do |note| %>
+      <% @notes.each do |note| %>
       <tr>
         <% note.photos.each do |photo| %>
-          <td><%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %></td>
-        <td><%= note.title %></td>
-        <% end %>
+       <br> <td><%= cl_image_tag(photo.key, height: 150, width: 200, crop: :fill)  %></td>
+      <% end %>
         <td>
           <%= link_to 'Detail', note_path(note), class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_note_path(note), class: 'btn btn-primary' %>
