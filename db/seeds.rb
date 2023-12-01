@@ -30,7 +30,7 @@ puts 'user created successfully.'
 file1 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701301917/anniversary_j0sbqk.png")
 file2 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701301917/Family-Photo_fistvr.png")
 file3 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701401356/Relaxing_in_a_Park_Bench_ay0dfw.jpg")
-file4 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701391231/production/n4fcrrw3jhxz2tppyu8si56uk0dp.jpg")
+file4 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701402622/Stressed_Remote_Worker_1_uzcba3.jpg")
 
 note = Note.new(
   title: 'Party for next month', # Ensure this is a valid title
