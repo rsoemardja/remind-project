@@ -41,7 +41,7 @@ note.photos.attach(io: file1, filename: 'anniversary.png', content_type: 'image/
 if note.save
   puts 'Note created successfully.'
 else
-  puts "Note failed to save. Errors: #{note.errors.full_messages.join(", ")}"
+  puts "Note failed to save. Errors: #{note.errors.full_messages.join(', ')}"
 end
 
 task = Task.new(
@@ -55,5 +55,5 @@ task.photos.attach(io: file2, filename: 'family-photo.png', content_type: 'image
 if task.save
   puts 'Task created successfully.'
 else
-  puts "Task failed to save. Errors: #{task.errors.full_messages.join(", ")}"
+  puts "Task failed to save. Errors: #{task.errors.full_messages.join(', ')}"
 end
