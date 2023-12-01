@@ -7,7 +7,6 @@ class NotesController < ApplicationController
   end
 
   def show
-    set_note
   end
 
   def new
@@ -26,17 +25,14 @@ class NotesController < ApplicationController
   end
 
   def edit
-    set_note
   end
 
   def update
-    set_note
     @note.update(note_params)
     redirect_to notes_path(@note)
   end
 
   def destroy
-    set_note
     @note.destroy
     redirect_to notes_path, status: :see_other
   end
