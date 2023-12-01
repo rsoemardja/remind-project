@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name phone_number email admin company])
   end
 
-  # def after_sign_in_path_for(resource)
-
-boar  # end
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || dashboard_path
+  end
 end
