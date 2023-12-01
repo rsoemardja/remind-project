@@ -54,7 +54,7 @@ note2 = Note.new(
   user: User.all.sample
 )
 note2.photos.attach(io: file3, filename: 'Parkbench.jpg', content_type: 'image/jpg')
-if note.save
+if note2.save
   puts 'Note created successfully.'
 else
   puts "Note failed to save. Errors: #{note2.errors.full_messages.join(", ")}"
