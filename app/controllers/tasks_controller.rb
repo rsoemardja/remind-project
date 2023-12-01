@@ -28,13 +28,13 @@ class TasksController < ApplicationController
   end
 
   def update
-    # if @task.update(task_params)
-    #   redirect_to @task
-    # else
-    #   render :edit
-    # end
-    @task.update(task_params)
-    redirect_to tasks_path(@task)
+    if @task.update(task_params)
+      redirect_to tasks_path
+    else
+      render :edit
+    end
+    # @task.update!(task_params)
+    # redirect_to tasks_path(@task)
   end
 
   def destroy

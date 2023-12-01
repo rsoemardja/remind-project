@@ -4,7 +4,7 @@
    <%= f.input :category, collection: valid_category %>
   <%= f.input :description, placeholder: 'Description' %>
   <%= f.input :due_date, placeholder: 'Due date' %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %></div>
-   <%= f.input :completed, as: :boolean, label: 'Completed' %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :completed, as: :boolean, label: 'Completed' %>
   <%= f.submit class: 'btn btn-primary'%>
 <% end %>
