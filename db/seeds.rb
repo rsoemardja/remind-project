@@ -22,7 +22,7 @@ User.create(
   password_confirmation: '123456',
   first_name: "Jimmy",
   last_name: "Jones",
-  phone_number: 142_134_567_8 # Assuming a numeric phone number
+  phone_number: 1421345678 # Assuming a numeric phone number
 )
 puts 'user created successfully.'
 
