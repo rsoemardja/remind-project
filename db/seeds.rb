@@ -53,7 +53,7 @@ note2 = Note.new(
   due_date: Date.today + 1.month,
   user: User.all.sample
 )
-note2.photos.attach(io: file3, filename: 'anniversary.png', content_type: 'image/png')
+note2.photos.attach(io: file3, filename: 'Parkbench.jpg', content_type: 'image/jpg')
 if note.save
   puts 'Note created successfully.'
 else
@@ -81,7 +81,7 @@ task2 = Task.new(
   due_date: Date.today + 1.month,
   user: User.all.sample
 )
-task2.photos.attach(io: file4, filename: 'stressed.png', content_type: 'image/png')
+task2.photos.attach(io: file4, filename: 'stressed.jpg', content_type: 'image/jpg')
 if task2.save
   puts 'Task created successfully.'
 else
