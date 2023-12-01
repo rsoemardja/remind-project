@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :tasks, as: :tasks
-  resources :notes, as: :notes
+  resources :notes, as: :notes, except: :destroy
+  get '/notes/:id/destroy', to: "notes#destroy", as: "destroy_note"
   resources :dashboard, only: [:index]
 
   # resources :users do

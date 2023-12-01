@@ -1,1 +1,8 @@
 <h1>Profile page</h1>
+<p>First Name: <%= @user.first_name %></p>
+<p>Last Name: <%= @user.last_name %></p>
+<p>Phone Number: <%= @user.phone_number %></p>
+<p>Email: <%= @user.email %></p>
+<%# <%= link_to "Edit User", edit_user_path(@user) %> 
+<%= link_to "Back", root_path,class: 'btn btn-success'  %>
+<%>
