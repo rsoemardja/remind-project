@@ -8,6 +8,9 @@ export default class extends Controller {
     const deadline = new Date(this.deadlineTarget.innerText);
     console.log(deadline);
 
+    // Remove the unused 'difference' variable
+    // const difference = deadline - new Date();
+
     this.startTimer(deadline);
   }
 
