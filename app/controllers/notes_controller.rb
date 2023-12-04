@@ -2,6 +2,10 @@ require 'timers'
 
 class NotesController < ApplicationController
   before_action :set_note, only: %i[show edit update destroy]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9880f6aaee7b98bdfac63363f213b31bd8680c12
   def index
     @user = current_user
     @notes = Note.all
@@ -18,7 +22,6 @@ class NotesController < ApplicationController
   end
 
   def show
-    set_note
   end
 
   def new
@@ -46,10 +49,10 @@ class NotesController < ApplicationController
   end
 
   def edit
-    set_note
   end
 
   def update
+<<<<<<< HEAD
     # set_note
     # if @note.update(note_params)
     #   redirect_to notes_path(@note)
@@ -60,12 +63,13 @@ class NotesController < ApplicationController
     #     render :edit
     # end
     set_note
+=======
+>>>>>>> 9880f6aaee7b98bdfac63363f213b31bd8680c12
     @note.update(note_params)
     redirect_to notes_path(@note)
   end
 
   def destroy
-    set_note
     @note.destroy
     redirect_to notes_path, status: :see_other
   end

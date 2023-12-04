@@ -1,4 +1,5 @@
 <h3>All Tasks</h3>
+<<<<<<< HEAD
 <table>
   <thead>
     <tr>
@@ -12,9 +13,23 @@
         <% task.photos.each do |photo| %>
         <br><td><%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill)  %></td>
       <% end %>
+=======
+
+<% @tasks.each do |task| %>
+  <div class="card-product">
+    <% task.photos.each do |photo| %>
+      <div class="card-product-image">
+        <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
+      </div>
+    <% end %>
+    <div class="card-product-infos">
+      <h2><%= task.title %></h2>
+      <p><%= task.description %></p>
+>>>>>>> 9880f6aaee7b98bdfac63363f213b31bd8680c12
         <td>
           <%= link_to 'Details', task_path(task), class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_task_path(task), class: 'btn btn-primary' %>
+<<<<<<< HEAD
           <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           <div data-controller='timer'>
             <span class="hours" data-timer-target="hours"></span>:<span class="minutes" data-timer-target="minutes"></span>
@@ -26,3 +41,11 @@
 </table>
 
 <%= link_to 'New Task', new_task_path(@user), class: 'btn btn-success' %>
+=======
+          <%= link_to 'Delete', destroy_task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+    </div>
+  </div>
+<% end %>
+ <%= link_to 'New Note', new_task_path(@user), class: 'btn btn-success' %>
+>>>>>>> 9880f6aaee7b98bdfac63363f213b31bd8680c12

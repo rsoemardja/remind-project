@@ -1,7 +1,5 @@
-<h1><%= @note.title %></h1>
-<p><%= @note.description %></p>
-<p><%= @note.due_date %></p>
 
+<<<<<<< HEAD
 <%= link_to 'Edit', edit_note_path(@note), class: 'btn btn-primary' %>
 <%= link_to 'Back', notes_path, class: 'btn btn-primary' %>
  <%= link_to "Delete", note_path(@note), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this note? This will remove any notes it has."}, class: 'btn btn-danger' %>
@@ -12,3 +10,36 @@
 
 # Start the timer
 <% timer.start %>
+=======
+
+<div class="container mt-4">
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="card-trip">
+        <% if @note.photos.attached? %>
+        <div>
+          <% @note.photos.each do |photo| %>
+            <%= image_tag photo %>
+          <% end %>
+        </div>
+        <% end %>
+
+        <div class="card-trip-infos">
+          <div>
+          <h2> <%= @note.title %></h2>
+            <p><strong>Category:</strong> <%= @note.category %></p>
+            <p><strong>Description:</strong> <%= @note.description %></p>
+            <%# <p><strong>Due Date:</strong> <%= @note.due_date</p> %>
+          </div>
+        </div>
+        <div class="p-3 text-center">
+          <%= link_to 'Edit', edit_note_path(@note), class: 'btn btn-primary' %> 
+          <%= link_to 'Back', notes_path, class: 'btn btn-primary' %>
+          <%= link_to "Delete", destroy_note_path(@note), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this note?"}, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+>>>>>>> 9880f6aaee7b98bdfac63363f213b31bd8680c12
