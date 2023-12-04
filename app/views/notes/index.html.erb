@@ -17,3 +17,27 @@
   </div>
 <% end %>
  <%= link_to 'New Note', new_note_path(@user), class: 'btn btn-success' %>
+
+
+
+
+
+
+
+
+<div class="container ">
+  <div class="cards">
+    <% @notes.each do |note| %>
+      <div class="card-big-shadow">
+      
+        <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
+            <div class="content">
+                <h6 class="category"><%note.category%></h6>
+                <h4 class="title"><a href="<%= note_path(note) %>"><%= note.title %></a></h4>
+                <p class="description"><%= note.description %> </p>
+            </div>
+        </div> <!-- end card -->
+      </div>
+    <% end %>
+  </div>
+</div>
