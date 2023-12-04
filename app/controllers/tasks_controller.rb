@@ -9,6 +9,8 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find(params[:id])
+    @deadline = @task.due_date.strftime('%Y-%m-%dT%H:%M:%SZ')
   end
 
   def new
@@ -52,6 +54,20 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     redirect_to tasks_path, status: :see_other
+  end
+
+  def deadline
+    @tasks = Task.all
+    @tasks.each do |task|
+      if task.due_date < Time.now
+        task.completed = true
+      end
+    end
+  end
+
+  def initialize_timer(element, deadline)
+    timer_id = element.dataset[:timer_id]
+    initialize_timer(element, timer_id, deadline)
   end
 
   private

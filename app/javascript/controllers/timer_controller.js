@@ -2,22 +2,40 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="timer"
 export default class extends Controller {
-  static targets = ["hours", "minutes"]
+
+  static targets = ["hours", "minutes", "deadline"]
   connect() {
-    const timeout = 60000;
-    // setTimeout(() => {
-    console.log(this.hoursTarget)
-    console.log(this.minutesTarget)
-    console.log("Hello from timer controller")
-    // }, timeout);
-    const today = (new Date()).getTime()
-    const duedate = (new Date("2023/12/02")).getTime()
-    const diff = (duedate - today)
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    console.log(hours)
-    console.log(minutes)
+    const deadline = new Date(this.deadlineTarget.innerText);
+    console.log(deadline);
+
+    this.startTimer(deadline);
   }
+
+  startTimer(deadline) {
+
+    const difference_in_milliseconds = deadline.getTime() - new Date().getTime();
+    console.log(difference_in_milliseconds)
+    const totalminutes = Math.floor((difference_in_milliseconds / (1000 * 60) ));
+    const hours = Math.floor(totalminutes / 60);
+    console.log(hours)
+    const minutes = Math.floor(totalminutes % 60);
+    console.log(minutes)
+    this.updateClock(hours, minutes);
+
+    if (difference_in_milliseconds > 0) {
+      this.timeinterval = setInterval(() => this.startTimer(deadline), 10000);
+    } else {
+      clearInterval(this.timeinterval)
+    }
+  }
+
+  updateClock(hours, minutes) {
+
+    this.hoursTarget.textContent = hours;
+    this.minutesTarget.textContent = ("0" + minutes).slice(-2);
+
+  }
+}
 // function getTimeRemaining(endtime) {
 //   const total = Date.parse(endtime) - Date.parse(new Date());
 //   const minutes = Math.floor((total / 1000 / 60) % 60);
@@ -50,4 +68,3 @@ export default class extends Controller {
 // const deadline = new Date(Date.parse(new Date()) + 15 * 60 * 1000);
 
 // export { initializeClock };
-}
