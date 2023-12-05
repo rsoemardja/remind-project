@@ -2,27 +2,23 @@
   <div class="row d-flex justify-content-center">
     <div class="col-6">
       <div class="card-trip">
-        <% if @note.photos.attached? %>
-        <div>
-          <% @note.photos.each do |photo| %>
-            <%= image_tag photo %>
-          <% end %>
-        </div>
-        <% end %>
-
-        <div class="card-trip-infos">
-          <div>
-          <h2> <%= @note.title %></h2>
-            <p><strong>Category:</strong> <%= @note.category %></p>
-            <p><strong>Description:</strong> <%= @note.description %></p>
-            <%# <p><strong>Due Date:</strong> <%= @note.due_date</p> %>
-          </div>
-        </div>
-        <div class="p-3 text-center">
-          <%= link_to 'Edit', edit_note_path(@note), class: 'btn btn-primary' %>
-          <%= link_to 'Back', notes_path, class: 'btn btn-primary' %>
-          <%= link_to "Delete", destroy_note_path(@note), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this note?"}, class: 'btn btn-danger' %>
-        </div>
+<div class="container mt-4 ">
+<div class="row d-flex justify-content-center">
+<div class="col-6">
+  <%# <div class="cards"> %>
+    <%# <% @notes.each do |note| %> 
+        <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
+            <div class="content">
+                <h6 class="category"><%@note.category%></h6>
+                <h4  class="title "><a href="<%= edit_note_path(@note)  %> "><%= @note.title %> </a></h4>
+                <p class="description"><%= @note.description %> </p>
+                <p class="description">Due Date: <%= @note.due_date %></p>
+              </div>
+              <div class="p-3 text-center">
+                <%= link_to 'Edit', edit_note_path(@note), class: 'btn btn-primary' %> 
+                <%= link_to 'Back', notes_path, class: 'btn btn-primary' %>
+                <%= link_to "Delete", destroy_note_path(@note), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this note?"}, class: 'btn btn-danger' %>
+            </div> <!-- end card -->
       </div>
     </div>
   </div>
