@@ -6,38 +6,38 @@ export default class extends Controller {
   static targets = ["hours", "minutes", "deadline"]
   connect() {
     const deadline = new Date(this.deadlineTarget.innerText);
-    console.log(deadline);
-
-    // Remove the unused 'difference' variable
-    // const difference = deadline - new Date();
-
+    this.updateClock(...this.calculateTimeRemaining(deadline))
     this.startTimer(deadline);
+  }
+  calculateTimeRemaining(deadline) {
+    const differenceInMilliseconds = deadline - new Date();
+    const totalMinutesRemaining = Math.floor((differenceInMilliseconds / (1000 * 60)));
+    const minutesRemaining = Math.floor(totalMinutesRemaining % 60) > 0 ? Math.floor(totalMinutesRemaining % 60) : 0;
+    const hoursRemaining = Math.floor(minutesRemaining / 60) > 0 ? Math.floor(minutesRemaining / 60) : 0;
+
+    return [hoursRemaining, minutesRemaining];
   }
 
   startTimer(deadline) {
+    const [hoursRemaining, minutesRemaining] = this.calculateTimeRemaining(deadline);
 
-    const difference_in_milliseconds = deadline.getTime() - new Date().getTime();
-    console.log(difference_in_milliseconds)
-    const totalminutes = Math.floor((difference_in_milliseconds / (1000 * 60) ));
-    const hours = Math.floor(totalminutes / 60);
-    console.log(hours)
-    const minutes = Math.floor(totalminutes % 60);
-    console.log(minutes)
-    this.updateClock(hours, minutes);
+      if (minutesRemaining > 0) {
+        this.timeinterval = setInterval(() =>
+        { this.updateClock(hoursRemaining, minutesRemaining)
+          this.startTimer(deadline)}
+          , 60000
+        );
+      } else {
+        this.updateClock(hoursRemaining, minutesRemaining)
+        clearInterval(this.timeinterval);
+      }
 
-    if (difference_in_milliseconds > 0) {
-      this.timeinterval = setInterval(() => this.startTimer(deadline), 10000);
-    } else {
-      clearInterval(this.timeinterval)
-    }
   }
-
   updateClock(hours, minutes) {
-
-    this.hoursTarget.textContent = hours;
-    this.minutesTarget.textContent = ("0" + minutes).slice(-2);
-
-  }
+      // Your code for updating the clock goes here
+      this.hoursTarget.textContent = hours;
+      this.minutesTarget.textContent = ("0" + minutes).slice(-2);
+    }
 }
 // function getTimeRemaining(endtime) {
 //   const total = Date.parse(endtime) - Date.parse(new Date());
