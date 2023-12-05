@@ -1,5 +1,4 @@
 <h3>All Tasks</h3>
-
 <% @tasks.each do |task| %>
   <div class="card-product">
     <% task.photos.each do |photo| %>
@@ -25,7 +24,18 @@
               <i class="fas fa-trash-alt"></i> <!-- Replace 'Delete' text with an icon -->
             <% end %>
         </td>
+      <td>
+
+        <% deadline = task.due_date.strftime("%Y-%m-%dT%H:%M:%SZ") %>
+        <div data-controller="">
+          <div class="d-none" data-timer-target="deadline"><%= task.due_date %></div>
+          <span class="hours" data-timer-target="hours"><%= task.hours_remaining %></span>:<span class="minutes" data-timer-target="minutes"><%= task.minutes_remaining %></span>
+        </div>
+
+      </div>
+      </td>
     </div>
   </div>
 <% end %>
 
+<%= link_to 'New Task', new_task_path(@user), class: 'btn btn-success' %>
