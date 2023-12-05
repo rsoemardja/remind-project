@@ -1,5 +1,4 @@
 <h3>All Tasks</h3>
-
 <% @tasks.each do |task| %>
   <div class="card-product">
     <% task.photos.each do |photo| %>
@@ -25,7 +24,10 @@
               <i class="fas fa-trash-alt"></i> <!-- Replace 'Delete' text with an icon -->
             <% end %>
         </td>
+      </div>
+      </td>
     </div>
   </div>
 <% end %>
 
+<%= link_to 'New Task', new_task_path(@user), class: 'btn btn-success' %>

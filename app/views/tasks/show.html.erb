@@ -1,3 +1,5 @@
+<%# require "timers" %>
+<p><%= @task.completed %>
 
 <div class="container mt-4">
   <div class="row d-flex justify-content-center">
@@ -29,10 +31,8 @@
             <%= link_to tasks_path, class: 'btn btn-primary' do %>
                 <i class="fas fa-arrow-left"></i> <!-- Replace 'Back' text with an arrow icon -->
                 <% end %>
-          
         </div>
       </div>
     </div>
   </div>
 </div>
-
