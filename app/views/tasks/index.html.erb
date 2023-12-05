@@ -17,7 +17,7 @@
         <% deadline = task.due_date.strftime("%Y-%m-%dT%H:%M:%SZ") %>
         <div data-controller="">
           <div class="d-none" data-timer-target="deadline"><%= task.due_date %></div>
-          <span class="hours" data-timer-target="hours"><%= format('%02d', ((task.due_date - DateTime.now) / 3600) - 11) %></span>:<span class="minutes" data-timer-target="minutes"><%= format('%02d',((task.due_date - DateTime.now) % 3600 / 60)) %></span>
+          <span class="hours" data-timer-target="hours"><%= task.hours_remaining %></span>:<span class="minutes" data-timer-target="minutes"><%= task.minutes_remaining %></span>
         </div>
       </div>
       </td>
