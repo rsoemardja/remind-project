@@ -5,7 +5,8 @@
   <%= f.input :description, placeholder: 'Description' %>
   <%= f.input :due_date,
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker", enable_time: true, date_format: "Y-m-d H:i"} }
+             %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.input :completed, as: :boolean, label: 'Completed' %>
   <%= f.submit class: 'btn btn-primary'%>

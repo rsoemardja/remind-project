@@ -1,5 +1,5 @@
-<%# require "timers" %>
-<p><%= @task.completed %>
+require "timers"
+<p><%= @task.completed %></p>
 
 <div class="container mt-4">
   <div class="row d-flex justify-content-center">
@@ -15,7 +15,7 @@
 
         <div class="card-trip-infos">
           <div>
-          <h2> <%= @task.title %></h2>
+            <h2><%= @task.title %></h2>
             <p><strong>Category:</strong> <%= @task.category %></p>
             <p><strong>Description:</strong> <%= @task.description %></p>
             <p><strong>Due Date:</strong> <%= @task.due_date %></p>
@@ -26,14 +26,14 @@
           <%= link_to 'Back', tasks_path, class: 'btn btn-primary' %>
           <%= link_to "Delete", destroy_note_path(@task), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this note?"}, class: 'btn btn-danger' %>
           <a data-controller="timer" data-deadline="<%= @deadline %>" data-unique-id="task-<%= @task.id %>">
-          <span class="hours" data-timer-target="hours"></span>:<span class="minutes" data-timer-target="minutes"></span>
+            <span class="hours" data-timer-target="hours"></span>:<span class="minutes" data-timer-target="minutes"></span>
+          </a>
         </div>
-          <% content_for :scripts do %>
+        <% content_for :scripts do %>
           <%= javascript_tag do %>
             initialize_timer("<%= @deadline %>");
           <% end %>
         <% end %>
-        </div>
       </div>
     </div>
   </div>
