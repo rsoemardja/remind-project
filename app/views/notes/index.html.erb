@@ -1,39 +1,33 @@
 <h3>All Notes</h3>
-<% @notes.each do |note| %>
-  <div class="card-product">
-    <% note.photos.each do |photo| %>
-      <div class="card-product-image">
-        <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
-      </div>
-    <% end %>
-    <div class="card-product-infos">
-      <h2><%= note.title %></h2>
-      <p><%= note.description %></p>
-      <%= link_to 'Detail', note_path(note), class: 'btn btn-primary' %>
-      <%= link_to 'Edit', edit_note_path(note), class: 'btn btn-primary' %>
-      <%= link_to 'Delete', destroy_note_path(note), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-    </div>
-  </div>
-<% end %>
- <%= link_to 'New Note', new_note_path(@user), class: 'btn btn-success' %>
-
-
-
-
-
-
-
 
 <div class="container ">
   <div class="cards">
     <% @notes.each do |note| %>
+
         <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
             <div class="content">
                 <h6 class="category"><%note.category%></h6>
                 <h4  class="title a "><a href="<%= note_path(note)  %> "><%= note.title %> </a></h4>
                 <p class="description"><%= note.description %> </p>
+                <%= link_to note_path(note), class: 'btn btn-primary' do %>
+            <i class="fas fa-info-circle"></i> <!-- Replace 'Detail' text with an icon -->
+            <% end %>
+
+            <%= link_to edit_note_path(note), class: 'btn btn-primary' do %>
+              <i class="fas fa-edit"></i> <!-- Replace 'Edit' text with an icon -->
+            <% end %>
+            <%= link_to new_note_path(@user), class: 'btn btn-success' do %>
+              <i class="fas fa-plus-circle"></i> <!-- Replace 'New Note' text with an icon -->
+            <% end %>
+
+            <%= link_to destroy_note_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+              <i class="fas fa-trash-alt"></i> <!-- Replace 'Delete' text with an icon -->
+            <% end %>
+
             </div>
         </div> <!-- end card -->
     <% end %>
   </div>
 </div>
+
+
