@@ -70,6 +70,19 @@ class TasksController < ApplicationController
     initialize_timer(element, timer_id, deadline)
   end
 
+  def trash
+    task = Task.find(params[:id])
+    task.update(in_trash: true)
+    redirect_to tasks_path, notice: 'Task moved to trash.'
+  end
+
+  def restore
+    task = Task.find(params[:id])
+    task.update(in_trash: false)
+    redirect_to tasks_path, notice: 'Task restored.'
+  end
+
+
   private
 
   def set_task

@@ -60,6 +60,18 @@ class NotesController < ApplicationController
     redirect_to notes_path, status: :see_other
   end
 
+  def trash
+    note = Note.find(params[:id])
+    note.update(in_trash: true)
+    redirect_to notes_path, notice: 'Note moved to trash.'
+  end
+
+  def restore
+    note = Note.find(params[:id])
+    note.update(in_trash: false)
+    redirect_to notes_path, notice: 'Note restored from trash.'
+  end
+
   private
 
   def set_note

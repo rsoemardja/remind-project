@@ -51,9 +51,18 @@ body {
 <%= link_to 'Home',  root_path %>
   <%= link_to 'Notes',  notes_path %>
   <%= link_to 'Tasks',  tasks_path %>
-  <a href="#">Trash</a>
-  <a href="#">Share</a>
-  <a href="#">Archive</a>
   <a href="#">Reminder</a>
+  <div class="trash-section">
+    <%= link_to 'Trash', '#', data: { action: 'trash', target: 'trash.trash' } %>
+    <ul class="trash-submenu">
+      <%= link_to 'Trashed Tasks', trash_tasks_path %>
+      <%= link_to 'All Trashed Tasks', empty_trash_tasks_path %>
+      <%= link_to 'Trashed Notes', trash_notes_path %>
+      <%= link_to 'All Trashed Notes', empty_trash_notes_path %>
+    </ul>
+  </div>
+  <a href="#">Share</a>
+  <%= link_to 'Archive', '#', data: { action: 'archive', target: 'archive.archive' } %>
+
 
 </div>

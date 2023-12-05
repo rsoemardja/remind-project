@@ -14,4 +14,18 @@ Rails.application.routes.draw do
 
   resources :notes, except: :destroy
   get "notes/:id/destroy", to: "notes#destroy", as: :destroy_note
+
+  resources :tasks do
+    member do
+      post 'trash'
+      post 'restore'
+    end
+  end
+
+  resources :notes do
+    member do
+      post 'trash'
+      post 'restore'
+    end
+  end
 end
