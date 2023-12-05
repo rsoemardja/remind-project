@@ -22,34 +22,34 @@
 </head>
 
 <body>
-  <div class="banner">
+  <%# <div class="banner">
     <div class="container">
       <h1>RE:Mind</h1>
       <h1>Your Personal Reminder Assistant</h1>
       <div class="center">
         <%= link_to 'Sign up Now', new_user_registration_path(@user), class: 'btn btn-gradient' %>
-      </div>
+      <%# </div>
       <div class="center">
         <%= link_to 'Already have an account? Login', new_user_session_path(@user) %>
-      </div>
-    </div>
-  </div>
-  <div class="container">
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
+  <%# <div class="container"> %>
 
-    <div class="card-home" style="margin-top: 20px;">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701224882/checklist-154274_1280_hyvfla.png)">
+    <%# <div class="card-home" style="margin-top: 20px;"> %>
+      <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701224882/checklist-154274_1280_hyvfla.png)">  %>
 
 
-    <div class="cards">
+    <%# <div class="cards">
       <div class="card-category">
 
         <%= link_to 'Create New Task', new_task_path(@user), class: 'btn btn-gradient' %>
-      </div>
+      <%# </div>
       <div class="card-category">
         <%= link_to 'Create New Note', new_note_path(@user), class: 'btn btn-gradient' %>
-      </div>
-    </div>
-  </div>
+      <%# </div>
+    </div> %>
+  <%# </div> %>
   <div class="container">
     <div class="footer">
       <div class="footer-links">

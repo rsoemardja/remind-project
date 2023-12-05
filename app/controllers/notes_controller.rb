@@ -1,4 +1,4 @@
-require 'timers'
+require 'time'
 
 class NotesController < ApplicationController
   before_action :set_note, only: %i[show edit update destroy]
@@ -19,6 +19,13 @@ class NotesController < ApplicationController
   end
 
   def show
+    if params[:id] == 'trash'
+      @trashed_notes = Note.in_trash
+      render 'notes/trash_index'
+    else
+      @note = Note.find(params[:id])
+      # Set other necessary instance variables for displaying an individual note
+    end
   end
 
   def new
@@ -58,6 +65,18 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     redirect_to notes_path, status: :see_other
+  end
+
+  def trash
+    note = Note.find(params[:id])
+    note.update(in_trash: true)
+    redirect_to notes_path, notice: 'Note moved to trash.'
+  end
+
+  def restore
+    note = Note.find(params[:id])
+    note.update(in_trash: false)
+    redirect_to notes_path, notice: 'Note restored from trash.'
   end
 
   private

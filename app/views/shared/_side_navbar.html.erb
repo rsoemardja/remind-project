@@ -51,38 +51,18 @@ body {
 <%= link_to 'Home',  root_path %>
   <%= link_to 'Notes',  notes_path %>
   <%= link_to 'Tasks',  tasks_path %>
-  <a href="#">Trash</a>
-  <a href="#">Share</a>
-  <a href="#">Archive</a>
   <a href="#">Reminder</a>
+  <div class="trash-section">
+    <%= link_to 'Trash', '#', data: { action: 'trash', target: 'trash.trash' } %>
+    <ul class="trash-submenu">
+      <%= link_to 'Trashed Tasks', trash_tasks_path %>
+      <%= link_to 'All Trashed Tasks', empty_trash_tasks_path %>
+      <%= link_to 'Trashed Notes', trash_notes_path %>
+      <%= link_to 'All Trashed Notes', empty_trash_notes_path %>
+    </ul>
+  </div>
+  <a href="#">Share</a>
+  <%= link_to 'Archive', '#', data: { action: 'archive', target: 'archive.archive' } %>
+
 
 </div>
-<div class="center" >
-        
-       </div>
-  <div class="main"><br>
-  <h3 class="center"> RE:mind - Never Miss A Moment </h3>
-    <div class="cards-dashboard"  >
-      <h3 class="center"><strong>Tasks<strong></h2>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701224882/checklist-154274_1280_hyvfla.png)">
-
-        <%= link_to 'Create New Task', new_task_path(@user), class: 'btn btn-gradient' %>
-
-      </div> <br>
-      <h3 class="center"><strong>Notes</strong></h2>
-
-      </div>
-
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701310439/post-it-150262_1280_mdxop4.png)">
-         <%= link_to 'Create New Note', new_note_path(@user), class: 'btn btn-gradient' %>
-      </div>
-
-       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701310625/my_task_rvbzly.jpg)">
-        <%= link_to 'Create New Task',  new_task_path(@user), class: 'btn btn-gradient' %> <br>
-      </div >
-      </div>
-
-  </div>
-
-</body>
-</html>
