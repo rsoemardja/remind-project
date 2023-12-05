@@ -46,12 +46,21 @@
                 <p class="description">Due Date: <%= @note.due_date %></p>
               </div>
               <div class="p-3 text-center">
-                <%= link_to 'Edit', edit_note_path(@note), class: 'btn btn-primary' %> 
-                <%= link_to 'Back', notes_path, class: 'btn btn-primary' %>
-                <%= link_to "Delete", destroy_note_path(@note), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this note?"}, class: 'btn btn-danger' %>
+               <%= link_to edit_note_path(@note), class: 'btn btn-primary' do %>
+              <i class="fas fa-edit"></i> <!-- Replace 'Edit' text with an icon -->
+                <% end %>
+                
+                <%= link_to destroy_note_path(@note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+              <i class="fas fa-trash-alt"></i> <!-- Replace 'Delete' text with an icon -->
+            <% end %>
+            <%= link_to notes_path, class: 'btn btn-primary' do %>
+                <i class="fas fa-arrow-left"></i> <!-- Replace 'Back' text with an arrow icon -->
+                <% end %>
             </div> <!-- end card -->
             
       </div>
     </div>
   </div>
 </div>
+
+
