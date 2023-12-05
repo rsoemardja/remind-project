@@ -1,7 +1,9 @@
 class Task < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
-  has_many :comments, dependent: :destroy
+  # has_many :comments, dependent: :destroy
+  # has_many :comments, class_name: 'Comment', dependent: :destroy
+
 
   validates :title, presence: true
   validates :description, presence: true
@@ -68,39 +70,6 @@ class Task < ApplicationRecord
     end
   end
 
-  def self.filter_by(filter_by)
-    if filter_by == 'all'
-      all
-    elsif filter_by == 'completed'
-      completed
-    elsif filter_by == 'not_completed'
-      not_completed
-    end
-  end
-
-  def self.filter_by(filter_by)
-    if filter_by == 'all'
-      all
-    elsif filter_by == 'completed'
-      completed
-    elsif filter_by == 'not_completed'
-      not_completed
-    end
-  end
-
-  def self.filter_by(filter_by)
-    if filter_by == 'all'
-      all
-    elsif filter_by == 'completed'
-      completed
-    elsif filter_by == 'not_completed'
-      not_completed
-    end
-  end
-
-  def self.filter_by(filter_by)
-    if filter_by == 'all'
-      all
 
   def hours_remaining
     hours_remaining = ((self.due_date - DateTime.now) / 3600) - 11

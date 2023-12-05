@@ -1,4 +1,4 @@
-require 'timers'
+require 'time'
 
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
@@ -9,8 +9,13 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
-    @deadline = @task.due_date.strftime('%Y-%m-%dT%H:%M:%SZ')
+    if params[:id] == 'trash'
+      @trashed_tasks = Task.in_trash
+      render 'tasks/trash_index' # or the appropriate view for trashed tasks
+    else
+      @task = Task.find(params[:id])
+      @deadline = @task.due_date.strftime('%Y-%m-%dT%H:%M:%SZ')
+    end
   end
 
   def new
@@ -86,7 +91,12 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    # @task = Task.find(params[:id])
+    if params[:id] == 'trash'
+      @tasks = Task.in_trash
+    else
+      @task = Task.find(params[:id])
+    end
   end
 
   def task_params

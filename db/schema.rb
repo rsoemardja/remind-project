@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_04_225705) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_05_193713) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_225705) do
     t.bigint "user_id"
     t.datetime "due_date", null: false
     t.string "category"
+    t.boolean "in_trash"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
@@ -64,6 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_225705) do
     t.bigint "user_id"
     t.boolean "completed"
     t.string "category"
+    t.boolean "in_trash"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

@@ -20,6 +20,12 @@ Rails.application.routes.draw do
       post 'trash'
       post 'restore'
     end
+
+    collection do
+      get 'trash', to: 'tasks#trash_index'
+      delete 'empty_trash', to: 'tasks#empty_trash'
+      post 'trash_all'
+    end
   end
 
   resources :notes do
@@ -27,5 +33,12 @@ Rails.application.routes.draw do
       post 'trash'
       post 'restore'
     end
+
+    collection do
+      get 'trash', to: 'notes#trash_index'
+      delete 'empty_trash', to: 'notes#empty_trash'
+      post 'trash_all'
+    end
   end
+
 end
