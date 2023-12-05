@@ -8,14 +8,34 @@ export default class extends Controller {
     const deadline = new Date(this.deadlineTarget.innerText);
     this.updateClock(...this.calculateTimeRemaining(deadline))
     this.startTimer(deadline);
+    // this.updateCountdown();
   }
+
+  updateCountdown() {
+    const now = new Date("2023-12-05 15:01:00").getTime();
+    // console.log(now)
+    const duedate = new Date(this.deadlineTarget.innerText).getTime();
+    // console.log(duedate)
+
+    // const duedate = new Date("2023-12-06 15:00:00").getTime();
+    const timediff = duedate - now;
+    const days = Math.floor(timediff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timediff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    console.log(hours)
+    const minutes = Math.floor((timediff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timediff % (1000 * 60)) / 1000);
+
+    console.log(days, hours, minutes, seconds);
+  }
+
   calculateTimeRemaining(deadline) {
-    const differenceInMilliseconds = deadline - new Date();
+    // BEGIN: ed8c6549bwf9
+    const differenceInMilliseconds = deadline - Date.now();
     const totalMinutesRemaining = Math.floor((differenceInMilliseconds / (1000 * 60)));
     const minutesRemaining = Math.floor(totalMinutesRemaining % 60) > 0 ? Math.floor(totalMinutesRemaining % 60) : 0;
-    const hoursRemaining = Math.floor(minutesRemaining / 60) > 0 ? Math.floor(minutesRemaining / 60) : 0;
-
+    const hoursRemaining = Math.floor(totalMinutesRemaining / 60) > 0 ? Math.floor(totalMinutesRemaining / 60) : 0;
     return [hoursRemaining, minutesRemaining];
+    // END: ed8c6549bwf9
   }
 
   startTimer(deadline) {
@@ -35,7 +55,9 @@ export default class extends Controller {
   }
   updateClock(hours, minutes) {
       // Your code for updating the clock goes here
+      console.log("Hours updated:", hours);
       this.hoursTarget.textContent = hours;
+      console.log(this.hoursTarget.textContent)
       this.minutesTarget.textContent = ("0" + minutes).slice(-2);
     }
 }
