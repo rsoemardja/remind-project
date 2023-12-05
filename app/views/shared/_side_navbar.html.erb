@@ -11,14 +11,14 @@ body {
 }
 
 .sidenav {
-  margin-top: 65px;
+  margin-top: 85px;
   height: 100%;
   width: 150px;
-  position: fixed;
+  position: absolute;;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #292828;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -58,13 +58,19 @@ body {
 
 </div>
 <div class="center" >
-        <h3> RE:mind - Never Miss A Moment </h3>
+        
        </div>
-  <div class="main">
-    <div class="cards"  >
+  <div class="main"><br>
+  <h3 class="center"> RE:mind - Never Miss A Moment </h3>
+    <div class="cards-dashboard"  >
+      <h3 class="center"><strong>Tasks<strong></h2>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701224882/checklist-154274_1280_hyvfla.png)">
 
         <%= link_to 'Create New Task', new_task_path(@user), class: 'btn btn-gradient' %>
+
+      </div> <br>
+      <h3 class="center"><strong>Notes</strong></h2>
+
       </div>
 
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701310439/post-it-150262_1280_mdxop4.png)">
