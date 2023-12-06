@@ -1,6 +1,6 @@
-<div class="center"><strong>Create Note</strong><%= link_to new_note_path(@user), class: 'btn btn-success' do %>
-              <i class="fas fa-plus-circle"></i> <!-- Replace 'New Note' text with an icon -->
-            <% end %>
+<div class="center">
+<%= link_to 'Create New Note', new_note_path(@user), class: 'btn btn-primary' %> <br>
+
 </div>
 <div class="container ">
   <div class="cards">
@@ -17,6 +17,9 @@
 
             <%= link_to edit_note_path(note), class: 'btn btn-primary' do %>
               <i class="fas fa-edit"></i> <!-- Replace 'Edit' text with an icon -->
+            <% end %>
+            <%= link_to new_note_path(@user), class: 'btn btn-success' do %>
+              <i class="fas fa-plus-circle"></i> <!-- Replace 'New Note' text with an icon -->
             <% end %>
 
             <%= link_to destroy_note_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
