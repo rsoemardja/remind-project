@@ -41,4 +41,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tasks do
+    member do
+      delete 'delete_photo/:photo_id', to: 'tasks#delete_photo', as: 'delete_photo'
+    end
+  end
 end

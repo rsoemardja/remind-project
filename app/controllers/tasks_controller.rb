@@ -1,4 +1,5 @@
 require 'time'
+require 'timers'
 
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
@@ -24,7 +25,7 @@ class TasksController < ApplicationController
     timers = Timers::Group.new
     timers.every(60.minutes) do
       # Check if 24 hours have elapsed
-      if Time.now >= created_at + 24.hours
+      if Time.now >= @task.created_at + 24.hours
         # Perform the action you want to execute after 24 hours
         # ...
         timers.stop
@@ -87,6 +88,18 @@ class TasksController < ApplicationController
     redirect_to tasks_path, notice: 'Task restored.'
   end
 
+  def delete_photo
+    @task = Task.find(params[:id])
+    @photo = @task.photos.find(params[:photo_id])
+
+    if @photo.destroy
+      redirect_to edit_task_path(@task), notice: 'Photo successfully deleted.'
+    else
+      redirect_to edit_task_path(@task), alert: 'Something went wrong.'
+    end
+
+    redirect_to edit_task_path(@task)
+  end
 
   private
 
