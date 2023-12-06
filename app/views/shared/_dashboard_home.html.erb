@@ -2,10 +2,11 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
 <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dk0declv9/image/upload/v1701222694/development/r4whua77qv5jbxzdy9rkx4i902q9.png" %>
+  <%= image_tag "https://res.cloudinary.com/dk0declv9/image/upload/v1701222694/development/r4whua77qv5jbxzdy9rkx4i902q9.png" %>
 <% end %>
+<style>
+
 body {
   font-family: "Lato", sans-serif;
 }
@@ -46,20 +47,5 @@ body {
 </style>
 </head>
 <body>
-
-<%# <div class="main"><br>
-<h3 class="center"> RE:mind - Never Miss A Moment </h3>
-  <div class="cards-dashboard"  >
-    <h3 class="center"><strong>Tasks<strong></h3>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701224882/checklist-154274_1280_hyvfla.png)">
-        <%= link_to 'Create New Task', new_task_path(@user), class: 'btn btn-gradient' %>
-      <%# </div> <br>
-    <h3 class="center"><strong>Notes</strong></h3>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701310439/post-it-150262_1280_mdxop4.png)">
-       <%= link_to 'Create New Note', new_note_path(@user), class: 'btn btn-gradient' %>
-      <%# </div>
-    </div>
-</div>   %>
-
 </body>
 </html>

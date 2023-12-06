@@ -34,9 +34,9 @@ file4 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701402622/
 
 note = Note.new(
   title: 'Party for next month', # Ensure this is a valid title
-  category: 'Party', # Ensure this is a valid sport type
+  # category: 'Party', # Ensure this is a valid sport type
   description: " We have party at friend's house", # Ensure this is a valid description
-  due_date: Date.today + 1.month,
+  due_date: Date.today + 1.day,
   user: User.all.sample
 )
 note.photos.attach(io: file1, filename: 'anniversary.png', content_type: 'image/png')
@@ -48,9 +48,9 @@ end
 
 note2 = Note.new(
   title: 'We have can walk around the park', # Ensure this is a valid title
-  category: 'Party', # Ensure this is a valid sport type
+  # category: 'Party', # Ensure this is a valid sport type
   description: " We can relax at the park", # Ensure this is a valid description
-  due_date: Date.today + 1.month,
+  due_date: Date.today + 2.day,
   user: User.all.sample
 )
 note2.photos.attach(io: file3, filename: 'Parkbench.jpg', content_type: 'image/jpg')
@@ -61,10 +61,10 @@ else
 end
 
 task = Task.new(
-  title: 'Party for next month', # Ensure this is a valid title
+  title: 'Christmas Party to prepare for the new year', # Ensure this is a valid title
   category: 'Party', # Ensure this is a valid sport type
   description: " We have party at friend's house", # Ensure this is a valid description
-  due_date: Date.today + 1.month,
+  due_date: Date.today + 1.week,
   user: User.all.sample
 )
 task.photos.attach(io: file2, filename: 'family-photo.png', content_type: 'image/png')
@@ -75,10 +75,10 @@ else
 end
 
 task2 = Task.new(
-  title: 'We Have a Mid Demo', # Ensure this is a valid title
-  category: 'Party', # Ensure this is a valid sport type
-  description: " We have a Mid Demo at Inspire 9", # Ensure this is a valid description
-  due_date: Date.today + 1.month,
+  title: "I have a big job interview", # Ensure this is a valid title
+  category: "Work", # Ensure this is a valid sport type
+  description: "It's located at Sydney.", # Ensure this is a valid description
+  due_date: Date.today + 3.day,
   user: User.all.sample
 )
 task2.photos.attach(io: file4, filename: 'stressed.jpg', content_type: 'image/jpg')
