@@ -2,70 +2,8 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<%# <header>
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%# <%= image_tag "https://res.cloudinary.com/dk0declv9/image/upload/v1701222694/development/r4whua77qv5jbxzdy9rkx4i902q9.png" %>
-  <%# <% end %>
-<%# <header> %>
-<style>
-* {
-  box-sizing: border-box;
-}
 
-body {
-  font-family: "Lato", sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensure that the body takes at least the full viewport height */
-  margin: 0;
-}
-
-.sidenav {
-  width: 150px;
-  background-color: #292828;
-  overflow-x: hidden;
-  padding-top: 20px;
-  flex-shrink: 0; /* Prevent the sidebar from shrinking */
-}
-
-.sidenav a {
-  padding: 6px 6px 6px 32px;
-  text-decoration: none;
-  font-size: 15px;
-  color: #ffff;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #25c4b3;
-}
-
-.main {
-  flex: 1;
-  margin-left: 200px; /* Same as the width of the sidenav */
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-@media screen and (max-width: 768px) {
-  .sidenav {
-    width: 100%;
-    margin-top: 0;
-    position: static;
-  }
-
-  .main {
-    margin-left: 0;
-  }
-}
-.content {
-  flex: 1;
-  margin-left: 200px; /* Same as the width of the sidebar */
-}
-</style>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 </head>
 
