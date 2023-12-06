@@ -4,8 +4,7 @@
   <ul>
     <% @trashed_tasks.each do |task| %>
       <li>
-        <%= task.title %> - <%= link_to 'Restore', restore_task_path(task), method: :post %> |
-        <%= link_to 'Delete Permanently', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= "#{task.title} - #{link_to 'Restore', restore_task_path(task), method: :post} | #{link_to 'Delete Permanently', task, method: :delete, data: { confirm: 'Are you sure?' }}" %>
       </li>
     <% end %>
   </ul>
