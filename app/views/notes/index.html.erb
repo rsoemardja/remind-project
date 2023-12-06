@@ -9,6 +9,7 @@
   <div class="cards">
     <% @notes.each do |note| %>
 
+        <div class="note" style="background-color: <%= @note.data_color %>;">
         <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
             <div class="content">
                 <h6 class="category"><%note.category%></h6>
@@ -24,6 +25,7 @@
 
             </div>
         </div> <!-- end card -->
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
