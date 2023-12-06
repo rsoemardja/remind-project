@@ -10,11 +10,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    
 
+    <%# <%= render "shared/flashes" %>
+    <% if user_signed_in? %>
+    <%= render "shared/navbar" %>
+    <div class="main">
+  <br>
+  <h3 class="center"> RE:mind - Never Miss A Moment </h3>
+
+<%= yield %>
+</div>
+<%= render "shared/side_navbar"  %>
+<% else %>
+<%= render "shared/navbar" %>
+<%= yield %>
+<% end %>
+<%= render "shared/flashes" %>
     <%# <%= render "shared/alert" %>
-    <%= yield %>
   </body>
 </html>
