@@ -8,9 +8,6 @@
     <% task.photos.each do |photo| %>
       <div class="card-product-image">
         <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
-        <%= link_to delete_photo_task_path(task, photo_id: photo.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
-        <i class="fas fa-trash-alt"></i>
-        <% end %>
       </div>
     <% end %>
 
@@ -42,11 +39,4 @@
   </div>
 <% end %>
 </div>
-<%= link_to 'New Task', new_task_path(@user), class: 'btn btn-success' %>
-<style>
-.task-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 16px;
-}
-</style>
+<%# <%= link_to 'New Task', new_task_path(@user), class: 'btn btn-success' %>
