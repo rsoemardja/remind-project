@@ -3,26 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701757128/Green_Modern_Interior_Designer_Linkedin_Banner_by6kg3.png;">
-      <div class="container" text-align="center">
-        <h1>RE:Mind </strong></h1>
-          <h1>Your Personal Reminder Assistant </strong></h1>
-          <div class="center">   <%= link_to 'Sign up Now', new_user_registration_path(@user), class: 'btn btn-gradient' %>
-          </div>
-          <div class="center"> <%= link_to 'Already have an account? Login',  new_user_session_path(@user) %>
-          </div>
-      </div>
-  </div>
-
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag  %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
+  <title>RE:Mind - Your Personal Reminder Assistant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    .banner {
+      background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701757128/Green_Modern_Interior_Designer_Linkedin_Banner_by6kg3.png);
+    }
+    .center {
+      text-align: center;
+    }
+    .btn-gradient {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .footer-links a {
+      margin-right: 10px;
+    }
+    .footer-copyright {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
-  
+  <div class="banner">
+    <div class="container center">
+      <h1>RE:Mind</h1>
+      <h1>Your Personal Reminder Assistant</h1>
+      <div class="center">
+        <%= link_to 'Sign up Now', new_user_registration_path(@user), class: 'btn btn-gradient' %>
+      </div>
+      <div class="center">
+        <%= link_to 'Already have an account? Login', new_user_session_path(@user) %>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="footer">
       <div class="footer-links">
@@ -37,5 +61,10 @@
       </div>
     </div>
   </div>
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag  %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
 </body>
 </html>
