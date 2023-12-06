@@ -1,7 +1,15 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  
 }
+.navbar.navbar-expand-sm.navbar-light.navbar-lewagon {
+  z-index: 9999;
+  height: 60px;
+  position: sticky;
+  top: 0;
+}
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;

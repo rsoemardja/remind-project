@@ -40,3 +40,13 @@
 // .card-product .card-product-infos {
 //   padding: 16px;
 // }
+
+
+.center {
+  display: flex;
+  align-content: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
