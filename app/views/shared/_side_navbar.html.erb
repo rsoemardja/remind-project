@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,9 +28,10 @@ body {
 /* Style the sidenav links and the dropdown button */
 .sidenav a, .dropdown-btn {
   padding: 6px 8px 6px 16px;
+  /* padding: 6px 6px 6px 32px; */
   text-decoration: none;
-  font-size: 20px;
-  color: #818181;
+  font-size: 16px;
+  color: #ffff;
   display: block;
   border: none;
   background: none;
@@ -41,22 +43,11 @@ body {
 
 /* On mouse-over */
 .sidenav a:hover, .dropdown-btn:hover {
-  color: #f1f1f1;
-}
-
-
-
-.sidenav a {
-  padding: 6px 6px 6px 32px;
-  text-decoration: none;
-  font-size: 15px;
-  color: #ffff;
-  display: block;
-}
-
-.sidenav a:hover {
+  /* color: #f1f1f1; */
   color: #25c4b3;
 }
+
+
 /* Main content */
 .main {
   margin-left: 200px; /* Same as the width of the sidenav */
@@ -76,6 +67,7 @@ body {
   display: none;
   background-color: #262626;
   padding-left: 8px;
+  text-align: center;
 }
 
 /* Optional: Style the caret down icon */
@@ -103,29 +95,41 @@ body {
 
   <%= link_to 'Notes',  notes_path %>
   <%= link_to 'Tasks',  tasks_path %>
- <%= link_to 'Trash', "#" %>
-    <button class="dropdown-btn">Trash 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-container">
-      <%= link_to 'Trashed Tasks', trash_tasks_path %>
-       <%= link_to 'Trashed Notes', trash_notes_path %>
-      
-      <a href="<%= link_to 'All Trashed Notes', empty_trash_notes_path %>">Link 2</a>
-      <a href="#">Link 3</a>
+  <div class="dropdown">
+  <button class="dropdown-btn">Trash
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content">
+    <%= link_to 'Trashed Tasks', trash_tasks_path %>
+    <%= link_to 'Trashed Notes', trash_notes_path %>
+    <%= link_to 'All Trashed Notes', empty_trash_notes_path %>
   </div>
-  <a href="#">Reminder</a>
-  <div class="trash-section">
-    <%= link_to 'Trash', '#', data: { action: 'trash', target: 'trash.trash' } %>
-    <ul class="trash-submenu">
-      <%= link_to 'Trashed Tasks', trash_tasks_path %>
-      <%= link_to 'All Trashed Tasks', empty_trash_tasks_path %>
-      <%= link_to 'Trashed Notes', trash_notes_path %>
-      <%= link_to 'All Trashed Notes', empty_trash_notes_path %>
-    </ul>
+    <a href="#">Reminder</a>
+  
   </div>
+ 
+
+  <script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+
+</script>
   <a href="#">Share</a>
   <%= link_to 'Archive', '#', data: { action: 'archive', target: 'archive.archive' } %>
 
 
 </div>
+

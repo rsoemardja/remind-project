@@ -1,3 +1,34 @@
+
+<h3 class="text-center">All Notes</h3><div class="d-flex justify-content-center mb-3">
+<%= link_to new_note_path(@user), class: 'btn btn-success' do %>
+<span>Create Note</span>
+  <i class="fas fa-plus-circle"></i>
+<% end %></div>
+
+<div class="container ">
+  <div class="cards">
+    <% @notes.each do |note| %>
+
+        <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
+            <div class="content">
+                <h6 class="category"><%note.category%></h6>
+                <h4  class="title a "><a href="<%= note_path(note)  %> "><%= note.title %> </a></h4>
+                <p class="description"><%= note.description %> </p>
+
+            <%= link_to edit_note_path(note), class: 'btn btn-primary' do %>
+              <i class="fas fa-edit"></i> <!-- Replace 'Edit' text with an icon -->
+            <% end %>
+            <%= link_to destroy_note_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+              <i class="fas fa-trash-alt"></i> <!-- Replace 'Delete' text with an icon -->
+            <% end %>
+
+            </div>
+        </div> <!-- end card -->
+    <% end %>
+  </div>
+</div>
+
+
 <div class="center">
 <%= link_to 'Create New Note', new_note_path(@user), class: 'btn btn-primary' %> <br>
 
