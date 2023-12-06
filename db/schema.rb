@@ -45,7 +45,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_193713) do
   create_table "notes", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "categories"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -59,12 +58,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_193713) do
     t.string "title"
     t.text "description"
     t.datetime "due_date", null: false
-    t.string "categories"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.boolean "completed"
     t.string "category"
+    t.string "start_time"
+    t.string "end_time"
     t.boolean "in_trash"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
