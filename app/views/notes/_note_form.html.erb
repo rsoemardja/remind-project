@@ -1,3 +1,4 @@
+<div class ="label">
 <% valid_category = ['Work', 'Study', 'Event', 'Shopping', 'Friends', 'Holiday', 'Going out','Other']  %>
 <%= simple_form_for [@note] do |f| %>
   <%= f.input :title, placeholder: 'Notes title' %>
@@ -10,3 +11,4 @@
   <%# <%= f.input :data_color, as: :hidden %> 
   <%= f.submit class: 'btn btn-primary'%>
 <% end %>
+</div>

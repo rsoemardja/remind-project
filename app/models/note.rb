@@ -1,6 +1,6 @@
 class Note < ApplicationRecord
   belongs_to :user
-  attr_accessor :data_color
+  # attr_accessor :data_color
   # has_one_attached :photo
   has_many_attached :photos
 

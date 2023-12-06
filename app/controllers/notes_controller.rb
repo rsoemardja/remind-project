@@ -27,52 +27,52 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
-  # def create
-  #   @note = Note.new(note_params)
-  #   @note.user = current_user
-  #   if @note.save
-  #     redirect_to notes_path(@note)
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  
-  # end
-
-
-
-
   def create
     @note = Note.new(note_params)
     @note.user = current_user
-    @note.data_color = generate_random_color # Assume `data_color` is an attribute in your Note model
-  
     if @note.save
-      redirect_to notes_path(@note), notice: 'Note was successfully created.'
+      redirect_to notes_path(@note)
     else
       render :new, status: :unprocessable_entity
     end
-  end
   
-  private
-  
-  def generate_random_color
-    colors = %w[blue green yellow brown purple orange] # Add other colors if needed
-    colors.sample # Select a random color from the array
   end
+
+
+
+
+  # def create
+  #   @note = Note.new(note_params)
+  #   @note.user = current_user
+  #   @note.data_color = generate_random_color # Assume `data_color` is an attribute in your Note model
+  
+  #   if @note.save
+  #     redirect_to notes_path(@note), notice: 'Note was successfully created.'
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
+  
+  # private
+  
+  # def generate_random_color
+  #   colors = %w[blue green yellow brown purple orange] # Add other colors if needed
+  #   colors.sample # Select a random color from the array
+  # end
   
   def edit
   end
 
   def update
-    # set_note
-    # @note.update(note_params)
-    # redirect_to notes_path(@note)
-    @note = Note.find(params[:id])
-    if @note.update(note_params)
-      redirect_to @note, notice: 'Note was successfully updated.'
-    else
-      render :edit
-    end
+    set_note
+    @note.update(note_params)
+    redirect_to notes_path(@note)
+    # @note = Note.find(params[:id])
+    # if @note.update(note_params)
+    #   redirect_to @note, notice: 'Note was successfully updated.'
+    # else
+    #   render :edit
+    # end
   end
 
   def destroy
@@ -99,6 +99,6 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:title, :description, :category, :due_date, photos: [], data_color: [])
+    params.require(:note).permit(:title, :description, :category, :due_date, photos: [], data_color: [] )
   end
 end
