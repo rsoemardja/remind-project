@@ -56,7 +56,7 @@ export default class extends Controller {
   updateClock(hours, minutes) {
       // Your code for updating the clock goes here
       console.log("Hours updated:", hours);
-      this.hoursTarget.textContent = hours;
+      this.hoursTarget.textContent = `${hours} hours`;
       console.log(this.hoursTarget.textContent)
       this.minutesTarget.textContent = ("0" + minutes).slice(-2);
     }
