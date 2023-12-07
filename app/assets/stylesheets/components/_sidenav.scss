@@ -2,13 +2,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Lato", sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensure that the body takes at least the full viewport height */
-  margin: 0;
-}
 
 .sidenav {
   width: 150px;

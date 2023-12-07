@@ -1,0 +1,23 @@
+.countdown > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 4px;
+}
+
+.countdown-text {
+  font-size: 10px;
+}
+
+.countdown-number {
+  height: 40px;
+  background: linear-gradient( to top, #0798ef 0%, #0798ef 50%, #005c92 50%, #005c92 100% );
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: white;
+  margin-top:0;
+  margin-bottom: 8px;
+}
