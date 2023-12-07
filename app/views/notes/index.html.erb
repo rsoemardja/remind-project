@@ -1,19 +1,21 @@
 
-<h3 class="text-center">All Notes</h3><div class="d-flex justify-content-center mb-3">
-<%= link_to new_note_path(@user), class: 'btn btn-success' do %>
-<span>Create Note</span>
+<h3 class="text-center">All Notes</h3>
+<div class="d-flex justify-content-center mb-3">
+  <%= link_to new_note_path(@user), class: 'btn btn-success' do %>
+  <span>Create Note</span>
   <i class="fas fa-plus-circle"></i>
-<% end %></div>
+  <% end %>
+</div>
 
-<div class="container ">
+<div class="container">
   <div class="cards">
     <% @notes.each do |note| %>
-
-        <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
-            <div class="content">
-                <h6 class="category"><%note.category%></h6>
-                <h4  class="title a "><a href="<%= note_path(note)  %> "><%= note.title %> </a></h4>
-                <p class="description"><%= note.description %> </p>
+      <%# <div class="note" style="background-color: <%= @note.data_color %>
+      <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
+        <div class="content">
+          <h6 class="category"><%note.category%></h6>
+          <h4  class="title a "><a href="<%= note_path(note)  %> "><%= note.title %> </a></h4>
+          <p class="description"><%= note.description %> </p>
 
             <%= link_to edit_note_path(note), class: 'btn btn-primary' do %>
               <i class="fas fa-edit"></i> <!-- Replace 'Edit' text with an icon -->

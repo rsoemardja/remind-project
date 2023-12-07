@@ -2,7 +2,19 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701757128/Green_Modern_Interior_Designer_Linkedin_Banner_by6kg3.png);
 }
+.center {
+  text-align: center;
+}
+.btn-gradient {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
 
 .banner h1 {
   margin: 0;
@@ -20,3 +32,4 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   justify-content: space-between;
 }
+
