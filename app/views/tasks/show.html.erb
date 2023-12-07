@@ -1,3 +1,10 @@
+<style>
+  .star-yellow {
+    color: #FFDF00 !important;
+  }
+</style>
+
+
 <div class="row d-flex justify-content-center">
   <div class="col-6">
     <div class="card-trip">
@@ -30,29 +37,25 @@
         <%= link_to tasks_path, class: 'btn btn-primary' do %>
           <i class="fas fa-arrow-left"></i> <!-- Replace 'Back' text with an arrow icon -->
         <% end %>
-      </div>
-
-      <a data-controller="timer" data-deadline="<%= @deadline %>" data-unique-id="task-<%= @task.id %>">
-        <span class="hours" data-timer-target="hours"></span>:<span class="minutes" data-timer-target="minutes"></span>
-      </a>
-
-      <% content_for :scripts do %>
-        <%= javascript_tag do %>
-          initialize_timer("<%= @deadline %>");
-        <% end %>
-      <% end %>
     </div>
+
+    <a data-controller="timer" data-deadline="<%= @deadline %>" data-unique-id="task-<%= @task.id %>">
+      <span class="hours" data-timer-target="hours"></span>:<span class="minutes" data-timer-target="minutes"></span>
+    </a>
+
+    <% content_for :scripts do %>
+      <%= javascript_tag do %>
+        initialize_timer("<%= @deadline %>");
+      <% end %>
+    <% end %>
   </div>
 </div>
-
-
-
-<hr class="my-5">
+<div class="my-5">
   <div class="row">
     <div class="col-12 col-sm-6">
-      <h3>Reviews</h3>
+      <h3>Comment this task</h3>
       <% if @task.reviews.empty? %>
-        <small><em class="text-muted">Be the first one to review this list</em></small>
+        <small><em class="text-muted">Comment this task</em></small>
       <% end %>
       <% @task.reviews.each do |review| %>
         <div>
@@ -62,9 +65,8 @@
           <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
           <p class="mb-0"><%= review.comment %></p>
         </div>
-        <hr>
       <% end %>
     </div>
-       <%= render "reviews/review_form" %>
+    <%= render "reviews/review_form", task: @task, review: @review %>
   </div>
 </div>
