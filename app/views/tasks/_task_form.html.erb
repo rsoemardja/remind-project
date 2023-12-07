@@ -1,3 +1,4 @@
+<div class="label">
 <% valid_category = ['Work', 'Study', 'Event', 'Family', 'Party', 'Home Work','To-Do', 'Shopping']  %>
 <%= simple_form_for [@task] do |f| %>
   <%= f.input :title, placeholder: 'Task title' %>
@@ -11,3 +12,4 @@
   <%= f.input :completed, as: :boolean, label: 'Completed' %>
   <%= f.submit class: 'btn btn-primary'%>
 <% end %>
+</div>

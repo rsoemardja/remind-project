@@ -1,12 +1,17 @@
 .footer {
-    background: #F4F4F4;
+    // background: #F4F4F4;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100px;
+    height: 50px;
     padding: 0px 50px;
     color: rgba(0,0,0,0.3);
+    text-align: center;
+    // margin-top: 50px;
   }
+
+   
+  
   .footer-links {
     display: flex;
     align-items: center;
@@ -17,7 +22,11 @@
     text-decoration: none;
     font-size: 24px;
     padding: 0px 10px;
+    margin-right: 10px;
   }
+  
+
+
   .footer-links a:hover {
     opacity: 1;
   }
@@ -25,3 +34,6 @@
     color: #D23333;
   }
   
+  .footer-copyright {
+    margin-top: 10px;
+  }

@@ -1,5 +1,6 @@
 class Note < ApplicationRecord
   belongs_to :user
+  # attr_accessor :data_color
   # has_one_attached :photo
   has_many_attached :photos
 
@@ -7,6 +8,8 @@ class Note < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
+
+  
 
   def self.search(search)
     if search
