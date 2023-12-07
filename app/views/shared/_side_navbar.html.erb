@@ -2,19 +2,19 @@
   <%= link_to 'Notes', notes_path %>
   <%= link_to 'Tasks', tasks_path %>
 
-  <button class="dropdown-btn">Trash
+  <%# <button class="dropdown-btn">Trash
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-container">
     <%= link_to 'Trashed Tasks', trash_tasks_path %>
-    <%= link_to 'Trashed Notes', trash_notes_path %>
-    <%= link_to 'All Trashed Notes', empty_trash_notes_path %>
-  </div>
+    <%# <%= link_to 'Trashed Notes', trash_notes_path %>
+    <%# <%= link_to 'All Trashed Notes', empty_trash_notes_path %> 
+  <%# </div> %> 
 
   <a href="#">Reminder</a>
 
   <div class="trash-section">
-    <%# <%= link_to 'Trash', '#', data: { action: 'trash', target: 'trash.trash' } %> %>
+    <%# <%= link_to 'Trash', '#', data: { action: 'trash', target: 'trash.trash' } %>
     <%# <ul class="trash-submenu">
       <%= link_to 'Trashed Tasks', trash_tasks_path %>
       <%# <%= link_to 'All Trashed Tasks', empty_trash_tasks_path %>

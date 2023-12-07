@@ -1,8 +1,17 @@
-<div class="main">
   <h3 class="center"> RE:mind - Never Miss A Moment </h3>
+  <h3 class="center"><strong>Tasks</strong></h3>
+  <div class="d-flex justify-content-center mb-3">
+    <%= link_to new_task_path(@user), class: 'btn btn-success' do %>
+    <i class="fas fa-plus-circle"></i>
+    <% end %>
+  </div>
 
-  <div class="cards-dashboard">
-    <h3 class="center"><strong>Tasks</strong></h3>
+    <div class="">
+      <% @tasks.each do |task| %>
+        <%= task.title %>
+      <% end %>
+    </div>
+
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701224882/checklist-154274_1280_hyvfla.png)">
       <%= link_to 'Create New Task', new_task_path(@user), class: 'btn btn-gradient' %>
     </div>
@@ -11,5 +20,16 @@
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701310439/post-it-150262_1280_mdxop4.png)">
       <%= link_to 'Create New Note', new_note_path(@user), class: 'btn btn-gradient' %>
     </div>
+
+<h3 class="center"><strong>Notes</strong></h3>
+  <div class="d-flex justify-content-center mb-3">
+    <%= link_to new_task_path(@user), class: 'btn btn-success' do %>
+    <i class="fas fa-plus-circle"></i>
+    <% end %>
   </div>
-</div>
+    <div class="">
+    <% @notes.each do |note| %>
+      <%= note.title %>
+    <% end %>
+    </div>
+  </div>

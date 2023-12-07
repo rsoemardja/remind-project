@@ -8,7 +8,7 @@ class NotesController < ApplicationController
 
   def index
     @user = current_user
-    @notes = Note.all
+    @notes = Note.all.order(created_at: :desc)
   
   end
 
