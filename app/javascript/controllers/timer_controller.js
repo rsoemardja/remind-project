@@ -55,11 +55,23 @@ export default class extends Controller {
   }
   updateClock(hours, minutes) {
       // Your code for updating the clock goes here
+      // console.log("Hours updated:", hours);
+      // this.hoursTarget.textContent = `${hours} hours`;
+      // console.log(this.hoursTarget.textContent)
+      // this.minutesTarget.textContent = ("0" + minutes).slice(-2);
+
       console.log("Hours updated:", hours);
-      this.hoursTarget.textContent = hours;
-      console.log(this.hoursTarget.textContent)
+      this.hoursTarget.textContent = `${hours} hours`;
       this.minutesTarget.textContent = ("0" + minutes).slice(-2);
+
     }
+
+
+  movetoArchive() {
+    const archive = document.getElementById("archive");
+    archive.insertAdjacentHTML('beforeend', this.dataset.task);
+    this.dataset.task.remove();
+  }
 }
 // function getTimeRemaining(endtime) {
 //   const total = Date.parse(endtime) - Date.parse(new Date());

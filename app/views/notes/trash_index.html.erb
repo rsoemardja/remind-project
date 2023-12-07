@@ -1,0 +1,17 @@
+<h1>Trashed Notes</h1>
+
+<% if @trashed_notes.any? %>
+  <ul>
+    <% @trashed_notes.each do |note| %>
+      <li>
+        <%= note.title %> - <%= link_to 'Restore', restore_note_path(note), method: :post %> |
+        <%= link_to 'Delete Permanently', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+  <%= button_to 'Empty Trash', empty_trash_notes_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+  <p>No trashed notes found.</p>
+<% end %>
+
+<%= link_to 'Back to Notes', notes_path %>

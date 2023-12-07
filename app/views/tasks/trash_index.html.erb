@@ -1,0 +1,16 @@
+<h1>Trashed Tasks</h1>
+
+<% if @trashed_tasks.any? %>
+  <ul>
+    <% @trashed_tasks.each do |task| %>
+      <li>
+        <%= "#{task.title} - #{link_to 'Restore', restore_task_path(task), method: :post} | #{link_to 'Delete Permanently', task, method: :delete, data: { confirm: 'Are you sure?' }}" %>
+      </li>
+    <% end %>
+  </ul>
+  <%= button_to 'Empty Trash', empty_trash_tasks_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+  <p>No trashed tasks found.</p>
+<% end %>
+
+<%= link_to 'Back to Tasks', tasks_path %>

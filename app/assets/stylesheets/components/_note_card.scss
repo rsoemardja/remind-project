@@ -80,7 +80,7 @@ a:hover, a:focus {
 
 /*======== COLORS ===========*/
 .card[data-color="blue"] {
-    background: #b8d8d8;
+    background: #099696;
 }
 .card[data-color="blue"] .description {
     color: #506568;
@@ -139,3 +139,15 @@ a:hover, a:focus {
 .title a {
     text-decoration: none;
   }
+
+.card-shadow {
+    box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+    bottom: -12%;
+    content: "";
+    display: flexbox;
+    left: -12%;
+    position: relative;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}

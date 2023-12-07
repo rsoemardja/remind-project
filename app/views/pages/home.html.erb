@@ -1,65 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    .banner {
-      background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701308534/banner-2369464_1280_asb89v.jpg);
-    }
-    .container {
-      text-align: center;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .btn-gradient {
-      background-image: linear-gradient(to right, #007bff, #00bcd4);
-    }
-    .cards {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .card-category {
-      flex-basis: 45%;
-      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dk0declv9/image/upload/v1701224882/checklist-154274_1280_hyvfla.png);
-    }
-    .footer {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    .footer-links {
-      margin-bottom: 10px;
-    }
-    .footer-links a {
-      margin-right: 10px;
-      color: #000;
-      text-decoration: none;
-    }
-    .footer-copyright {
-      color: #000;
-    }
-  </style>
-  <title>RE:Mind - Your Personal Reminder Assistant</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag  %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
-</head>
-
-<body>
   <div class="banner">
-    <div class="container">
+    <div class="container center">
       <h1>RE:Mind</h1>
       <h1>Your Personal Reminder Assistant</h1>
       <div class="center">
@@ -70,29 +10,3 @@
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="cards">
-      <div class="card-category">
-        <%= link_to 'Create New Task', new_task_path(@user), class: 'btn btn-gradient' %>
-      </div>
-      <div class="card-category">
-        <%= link_to 'Create New Note', new_note_path(@user), class: 'btn btn-gradient' %>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="footer">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <div class="footer-copyright">
-        This is made with <i class="fas fa-heart"></i> at RE:Mind
-      </div>
-    </div>
-  </div>
-</body>
-</html>
