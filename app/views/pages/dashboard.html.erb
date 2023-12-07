@@ -10,6 +10,7 @@
 <div class="container">
   <div class="cards">
     <% @tasks.limit(3).order(created_at: :desc).each do |task| %>
+    <%# <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : asset_path('list_background.jpg') %>
       <div class="card-dashboard-task" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
         <h4 class="title a"> <a href="<%= task_path(task) %> "><%= task.title %> </a></h4>
       </div>
