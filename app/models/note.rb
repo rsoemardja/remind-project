@@ -1,14 +1,11 @@
 class Note < ApplicationRecord
   belongs_to :user
-  # attr_accessor :data_color
-  # has_one_attached :photo
   has_many_attached :photos
 
   scope :in_trash, -> { where(in_trash: true) }
 
   validates :title, presence: true
   validates :description, presence: true
-
   
 
   def self.search(search)

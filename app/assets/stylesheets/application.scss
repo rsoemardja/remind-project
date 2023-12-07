@@ -12,36 +12,3 @@
 @import "components/index";
 @import "pages/index";
 
-
-body {
-    // background-color: #30bdea;
-    background-color:#008B8B;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.5;
-    color:black;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-touch-callout: none;
-
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-size: calc(1.3rem + 0.6vw);
-    text-align: center;
-    color: #b25825;
-  }
-
-  p {
-    font-size: calc(0.8rem + 0.3vw);
-    text-align: left;
-    color: black;
-  }
-
