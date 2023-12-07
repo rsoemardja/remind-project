@@ -6,23 +6,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
   <body>
-    <%= render "shared/flashes" %>
-
+    <%# <%= render "shared/flashes" %>
     <% if user_signed_in? %>
-      <%= render "shared/navbar" %>
-      <div class="main">
-        <%= yield %>
-      </div>
-      <%# <%= render "shared/side_navbar"  %> 
-    <% else %>
-      <%= render "shared/navbar" %>
-      <%= yield %>
-    <% end %>
+    <%= render "shared/navbar" %>
+    <div class="main">
+      <br>
+    <%= yield %>
+    </div>
+  <%= render "shared/side_navbar"  %>
+  <% else %>
+  <%= render "shared/navbar" %>
+  <%= yield %>
+  <% end %>
+  <%= render "shared/flashes" %>
+  <%# <%= render "shared/alert" %>
   </body>
-  <%= render "shared/footer" %>
 </html>
