@@ -4,9 +4,9 @@
   <%= f.input :title, placeholder: 'Notes title' %>
   <%= f.input :category, collection: valid_category %>
   <%= f.input :description, placeholder: 'Description' %>
-  <%= f.input :due_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+  <%# <%= f.input :due_date, %>
+            <%# as: :string, %>
+            <%# input_html: { data: { controller: "datepicker" } } %> 
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%# <%= f.input :data_color, as: :hidden %> 
   <%= f.submit class: 'btn btn-primary'%>
