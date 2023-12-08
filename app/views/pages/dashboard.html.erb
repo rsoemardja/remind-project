@@ -30,7 +30,7 @@
 <div class="container">
   <div class="cards">
     <% @notes.limit(3).order(created_at: :desc).each do |note| %>
-      <div class="card-dashboard-note" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+      <div class="card-dashboard-note">
        <h4 class="text-dashboard"><a href="<%= note_path(note)  %> "><%= note.title %> </a></h4>
       </div>
     <% end %>
