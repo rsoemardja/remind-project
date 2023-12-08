@@ -17,6 +17,27 @@
 
       <div class="card-trip-infos">
         <div>
+          <% content_for :scripts do %>
+            <%= javascript_tag do %>
+              initialize_timer("<%= @deadline %>");
+            <% end %>
+          <% end %>
+            <div class="col">
+              <div class="d-flex countdown justify-content-end">
+                <div>
+                  <p class="countdown-number"><span><%= @task.formatted_remaining_days%><span></p>
+                  <p class="countdown-text"><%= "#{"day".pluralize(@task.formatted_remaining_days)}"%></p>
+                </div>
+                <div>
+                  <p class="countdown-number"><%= @task.formatted_remaining_hours %></p>
+                  <p class="countdown-text"><%= "#{"hour".pluralize(@task.formatted_remaining_hours)}" %></p>
+                </div>
+                <div>
+                  <p class="countdown-number"><%= @task.minutes_remaining %></p>
+                  <p class="countdown-text"><%= "#{"minute".pluralize(@task.minutes_remaining)}" %></p>
+                </div>
+            </div>
+
           <h2><%= @task.title %></h2>
           <p><strong>Category:</strong> <%= @task.category %></p>
           <p><strong>Description:</strong> <%= @task.description %></p>
@@ -38,31 +59,10 @@
         <% end %>
     </div>
 
-    <a data-controller="timer" data-deadline="<%= @deadline %>" data-unique-id="task-<%= @task.id %>">
-      <span class="hours" data-timer-target="hours"></span>:<span class="minutes" data-timer-target="minutes"></span>
-    </a>
 
-    <% content_for :scripts do %>
-      <%= javascript_tag do %>
-        initialize_timer("<%= @deadline %>");
-      <% end %>
-    <% end %>
+
       </div>
-                  <div class="col">
-              <div class="d-flex countdown justify-content-end">
-                <div>
-                  <p class="countdown-number"><span><%= @task.formatted_remaining_days%><span></p>
-                  <p class="countdown-text"><%= "#{"day".pluralize(@task.formatted_remaining_days)}"%></p>
-                </div>
-                <div>
-                  <p class="countdown-number"><%= @task.formatted_remaining_hours %></p>
-                  <p class="countdown-text"><%= "#{"hour".pluralize(@task.formatted_remaining_hours)}" %></p>
-                </div>
-                <div>
-                  <p class="countdown-number"><%= @task.minutes_remaining %></p>
-                  <p class="countdown-text"><%= "#{"minute".pluralize(@task.minutes_remaining)}" %></p>
-                </div>
-            </div>
+
       <%# <a data-controller="timer" data-deadline="<%= @deadline" data-unique-id="task-<%= @task.id"> %>
         <%# <span class="hours" data-timer-target="hours"></span>:<span class="minutes" data-timer-target="minutes"></span> %>
       <%# </a> %>
