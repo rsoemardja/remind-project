@@ -3,7 +3,6 @@ class Task < ApplicationRecord
   has_many_attached :photos
   # has_many :comments, dependent: :destroy
   # has_many :comments, class_name: 'Comment', dependent: :destroy
-  has_many :reviews, dependent: :destroy
 
   validates :title, presence: true
   validates :description, presence: true

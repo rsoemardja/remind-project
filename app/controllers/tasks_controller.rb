@@ -15,7 +15,6 @@ class TasksController < ApplicationController
       render 'tasks/trash_index' # or the appropriate view for trashed tasks
     else
       @task = Task.find(params[:id])
-      @review = Review.new
       @deadline = @task.due_date.strftime('%Y-%m-%dT%H:%M:%SZ')
     end
   end
