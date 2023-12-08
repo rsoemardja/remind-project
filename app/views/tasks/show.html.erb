@@ -3,3 +3,95 @@
     color: #FFDF00 !important;
   }
 </style>
+
+<div class="row d-flex justify-content-center">
+  <div class="col-6">
+    <div class="card-trip">
+      <% if @task.photos.attached? %>
+        <div>
+          <% @task.photos.each do |photo| %>
+            <%= image_tag photo %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= @task.title %></h2>
+          <p><strong>Category:</strong> <%= @task.category %></p>
+          <p><strong>Description:</strong> <%= @task.description %></p>
+          <p><strong>Due Date:</strong> <%= @task.due_date %></p>
+        </div>
+      </div>
+
+      <div class="p-3 text-center">
+        <%= link_to edit_task_path(@task), class: 'btn btn-primary' do %>
+          <i class="fas fa-edit"></i> <!-- Replace 'Edit' text with an icon -->
+        <% end %>
+
+        <%= link_to destroy_task_path(@task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+          <i class="fas fa-trash-alt"></i> <!-- Replace 'Delete' text with an icon -->
+        <% end %>
+
+        <%= link_to tasks_path, class: 'btn btn-primary' do %>
+          <i class="fas fa-arrow-left"></i> <!-- Replace 'Back' text with an arrow icon -->
+        <% end %>
+    </div>
+
+    <a data-controller="timer" data-deadline="<%= @deadline %>" data-unique-id="task-<%= @task.id %>">
+      <span class="hours" data-timer-target="hours"></span>:<span class="minutes" data-timer-target="minutes"></span>
+    </a>
+
+    <% content_for :scripts do %>
+      <%= javascript_tag do %>
+        initialize_timer("<%= @deadline %>");
+      <% end %>
+    <% end %>
+      </div>
+                  <div class="col">
+              <div class="d-flex countdown justify-content-end">
+                <div>
+                  <p class="countdown-number"><span><%= @task.formatted_remaining_days%><span></p>
+                  <p class="countdown-text"><%= "#{"day".pluralize(@task.formatted_remaining_days)}"%></p>
+                </div>
+                <div>
+                  <p class="countdown-number"><%= @task.formatted_remaining_hours %></p>
+                  <p class="countdown-text"><%= "#{"hour".pluralize(@task.formatted_remaining_hours)}" %></p>
+                </div>
+                <div>
+                  <p class="countdown-number"><%= @task.minutes_remaining %></p>
+                  <p class="countdown-text"><%= "#{"minute".pluralize(@task.minutes_remaining)}" %></p>
+                </div>
+            </div>
+      <%# <a data-controller="timer" data-deadline="<%= @deadline" data-unique-id="task-<%= @task.id"> %>
+        <%# <span class="hours" data-timer-target="hours"></span>:<span class="minutes" data-timer-target="minutes"></span> %>
+      <%# </a> %>
+
+      <%# <% content_for :scripts do %>
+        <%# <%= javascript_tag do %>
+          <%# initialize_timer("<%= @deadline ") %>
+        <%# <% end %>
+      <%# <% end %>
+    </div>
+  </div>
+</div>
+<div class="my-5">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <h3>Comment this task</h3>
+      <% if @task.reviews.empty? %>
+        <small><em class="text-muted">Comment this task</em></small>
+      <% end %>
+      <% @task.reviews.each do |review| %>
+        <div>
+          <% review.rating.to_i.times do %>
+            <i class="fas fa-star star-yellow"></i>
+          <% end %>
+          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+          <p class="mb-0"><%= review.comment %></p>
+        </div>
+      <% end %>
+    </div>
+    <%= render "reviews/review_form", task: @task, review: @review %>
+  </div>
+</div>

@@ -87,4 +87,15 @@ class Task < ApplicationRecord
       format('%02d', 0)
     end
   end
+
+  def formatted_remaining_hours
+    hours_remaining = self.hours_remaining.to_i
+    format('%02d', hours_remaining % 24)
+  end
+
+  def formatted_remaining_days
+    hours_remaining = self.hours_remaining.to_i
+    format('%02d', hours_remaining / 24)
+  end
+
 end
