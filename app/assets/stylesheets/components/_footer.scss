@@ -1,3 +1,5 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 .footer {
     // background: #F4F4F4;
     display: flex;
@@ -8,12 +10,12 @@
     color: rgba(0,0,0,0.3);
     // text-align: center;
     // margin-top: 50px;
-    position:absolute;
+    position: fixed;
     bottom: 0;
+    margin-left: 150px;
+    width: -webkit-fill-available;
   }
 
-   
-  
   .footer-links {
     display: flex;
     align-items: center;
@@ -26,8 +28,6 @@
     padding: 0px 10px;
     // margin-right: 10px;
   }
-  
-
 
   .footer-links a:hover {
     opacity: 1;
@@ -35,7 +35,7 @@
   .footer .fa-heart {
     color: #D23333;
   }
-  
+
   .footer-copyright {
     margin-top: 10px;
   }

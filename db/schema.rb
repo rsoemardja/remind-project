@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_07_163445) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_08_001442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,11 +45,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_163445) do
   create_table "notes", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "categories"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.datetime "due_date", null: false
     t.string "category"
     t.boolean "in_trash"
     t.string "data_color"
@@ -69,13 +67,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_163445) do
     t.string "title"
     t.text "description"
     t.datetime "due_date", null: false
-    t.string "categories"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.boolean "completed"
     t.string "category"
     t.boolean "in_trash"
+    t.boolean "archived"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -89,7 +87,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_163445) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.boolean "admin"
     t.boolean "company"
     t.index ["email"], name: "index_users_on_email", unique: true
