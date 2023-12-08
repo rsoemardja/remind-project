@@ -1,14 +1,4 @@
-  <style>
-    .text-dashboard {
-      text-align: center;
-      font-size: calc(1.3rem + 0.6vw);
-      text-align: center;
-      text decoration: none;
-      color: white;
-    }
-  </style>
 
- 
   <h3 class="center"><strong>Tasks</strong></h3>
   <div class="d-flex justify-content-center mb-3">
     <%= link_to new_task_path(@user), class: 'btn btn-success' do %>
@@ -16,7 +6,7 @@
     <% end %>
   </div>
 
-    
+
 <div class="container">
   <div class="cards">
     <% @tasks.limit(3).order(created_at: :desc).each do |task| %>
@@ -57,4 +47,3 @@ h4.text-dashboard a, h4.text-dashboard p {
     margin-bottom: 0;
 }
 </style>
-
