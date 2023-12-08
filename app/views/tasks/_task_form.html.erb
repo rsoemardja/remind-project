@@ -10,6 +10,13 @@
              %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%# <%= f.input :completed, as: :boolean, label: 'Completed' %> 
-  <%= f.submit class: 'btn btn-primary'%>
+  <%# <%= f.submit class: 'btn btn-primary'%> 
+   <%= f.submit class: 'form-login btn'%>
 <% end %>
 </div>
+
+<style>
+  .form-login .btn {
+    background-color: #A6CFD5;
+  }
+</style>
