@@ -6,23 +6,22 @@
       <%# <% @notes.each do |note| %>
       <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
         <div class="content">
-                <h6 class="category"><%@note.category%></h6>
-                <h4  class="title "><a href="<%= edit_note_path(@note)  %> "><%= @note.title %> </a></h4>
-                <p class="description"><%= @note.description %> </p>
-                <p class="description">Due Date: <%= @note.due_date %></p>
-              </div>
-              <div class="p-3 text-center">
-               <%= link_to edit_note_path(@note), class: 'btn btn-primary' do %>
-              <i class="fas fa-edit"></i> <!-- Replace 'Edit' text with an icon -->
-                <% end %>
+          <h6 class="category"><%@note.category%></h6>
+          <h4  class="title "><a href="<%= edit_note_path(@note)  %> "><%= @note.title %> </a></h4>
+          <p class="description"><%= @note.description %> </p>
+        </div>
+        <div class="p-3 text-center">
+          <%= link_to edit_note_path(@note), class: 'btn btn-primary' do %>
+            <i class="fas fa-edit"></i> <!-- Replace 'Edit' text with an icon -->
+          <% end %>
 
-                <%= link_to destroy_note_path(@note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
-              <i class="fas fa-trash-alt"></i> <!-- Replace 'Delete' text with an icon -->
-            <% end %>
-            <%= link_to notes_path, class: 'btn btn-primary' do %>
-                <i class="fas fa-arrow-left"></i> <!-- Replace 'Back' text with an arrow icon -->
-                <% end %>
-            </div> <!-- end card -->
+          <%= link_to destroy_note_path(@note), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+            <i class="fas fa-trash-alt"></i> <!-- Replace 'Delete' text with an icon -->
+          <% end %>
+          <%= link_to notes_path, class: 'btn btn-primary' do %>
+            <i class="fas fa-arrow-left"></i> <!-- Replace 'Back' text with an arrow icon -->
+          <% end %>
+        </div> <!-- end card -->
       </div>
     </div>
   </div>

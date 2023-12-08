@@ -7,7 +7,7 @@
       color: white;
     }
   </style>
-  
+
   <h3 class="center"> RE:mind - Never Miss A Moment </h3>
   <h3 class="center"><strong>Tasks</strong></h3>
   <div class="d-flex justify-content-center mb-3">
@@ -20,9 +20,9 @@
 <div class="container">
   <div class="cards">
     <% @tasks.limit(3).order(created_at: :desc).each do |task| %>
-    <%# <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @task.photos.attached? ? cl_image_path(@task.photos.key) : asset_path('task_background.jpg') %>
-      <div class="card-dashboard-task" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
-        <h4 class="text-dashboard"> <a href="<%= task_path(task) %> "><%= task.title %> </a></h4>
+    <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= task.photos.attached? ? cl_image_path(task.photos.first.key) : asset_path('task_background.jpg') %>)">
+      <%# <div class="card-dashboard-task" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()"> %>
+        <h4 class="text-dashboard"> <a href="<%= task_path(task) %> "><p><%= task.title %></p> </a></h4>
       </div>
     <% end %>
   </div>
@@ -46,3 +46,14 @@
     <% end %>
   </div>
 </div>
+
+<style>
+h4.text-dashboard a, h4.text-dashboard p {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 0;
+}
+</style>
