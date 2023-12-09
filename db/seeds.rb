@@ -31,12 +31,14 @@ file1 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701301917/
 file2 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701301917/Family-Photo_fistvr.png")
 file3 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701401356/Relaxing_in_a_Park_Bench_ay0dfw.jpg")
 file4 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1701402622/Stressed_Remote_Worker_1_uzcba3.jpg")
+file5 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1702084594/Party_cnbbnd.jpg")
+file6 = URI.open("https://res.cloudinary.com/dttxk4mnc/image/upload/v1702085438/Celebration_Dinner_jrjuck.jpg")
 
 note = Note.new(
-  title: 'Party for next month', # Ensure this is a valid title
+  title: 'Getting Ready to move😟', # Ensure this is a valid title
   # category: 'Party', # Ensure this is a valid sport type
-  description: " We have party at friend's house", # Ensure this is a valid description
-  due_date: Date.today + 1.day,
+  description: "I'm Moving to another State Sooner than i think", # Ensure this is a valid description
+  # due_date: Date.today + 1.day,
   user: User.all.sample
 )
 note.photos.attach(io: file1, filename: 'anniversary.png', content_type: 'image/png')
@@ -50,7 +52,7 @@ note2 = Note.new(
   title: 'We have can walk around the park', # Ensure this is a valid title
   # category: 'Party', # Ensure this is a valid sport type
   description: " We can relax at the park", # Ensure this is a valid description
-  due_date: Date.today + 2.day,
+  # due_date: Date.today + 2.day,
   user: User.all.sample
 )
 note2.photos.attach(io: file3, filename: 'Parkbench.jpg', content_type: 'image/jpg')
@@ -60,14 +62,28 @@ else
   puts "Note failed to save. Errors: #{note2.errors.full_messages.join(", ")}"
 end
 
-task = Task.new(
-  title: 'Christmas Party to prepare for the new year', # Ensure this is a valid title
-  category: 'Party', # Ensure this is a valid sport type
-  description: " We have party at friend's house", # Ensure this is a valid description
-  due_date: Date.today + 1.week,
+note3 = Note.new(
+  title: 'Learning French', # Ensure this is a valid title
+  # category: 'Party', # Ensure this is a valid sport type
+  description: "...Someday Ou Revoir🥲", # Ensure this is a valid description
+  # due_date: Date.today + 2.day,
   user: User.all.sample
 )
-task.photos.attach(io: file2, filename: 'family-photo.png', content_type: 'image/png')
+# note2.photos.attach(io: file3, filename: 'Parkbench.jpg', content_type: 'image/jpg')
+if note3.save
+  puts 'Note created successfully.'
+else
+  puts "Note failed to save. Errors: #{note3.errors.full_messages.join(", ")}"
+end
+
+task = Task.new(
+  title: "I have a big job interview", # Ensure this is a valid title
+  category: "Work", # Ensure this is a valid sport type
+  description: "It's located at Sydney.", # Ensure this is a valid description
+  due_date: Date.today + 3.day,
+  user: User.all.sample
+)
+task.photos.attach(io: file4, filename: 'stressed.jpg', content_type: 'image/jpg')
 if task.save
   puts 'Task created successfully.'
 else
@@ -75,15 +91,29 @@ else
 end
 
 task2 = Task.new(
-  title: "I have a big job interview", # Ensure this is a valid title
-  category: "Work", # Ensure this is a valid sport type
-  description: "It's located at Sydney.", # Ensure this is a valid description
-  due_date: Date.today + 3.day,
+  title: 'Surprise for a Mate', # Ensure this is a valid title
+  category: 'Party', # Ensure this is a valid sport type
+  description: "Bilated Birthday Party", # Ensure this is a valid description
+  due_date: Date.today + 2.week,
   user: User.all.sample
 )
-task2.photos.attach(io: file4, filename: 'stressed.jpg', content_type: 'image/jpg')
+task2.photos.attach(io: file5, filename: 'party-photo.png', content_type: 'image/jpg')
 if task2.save
   puts 'Task created successfully.'
 else
   puts "Task failed to save. Errors: #{task2.errors.full_messages.join(", ")}"
+end
+
+task3 = Task.new(
+  title: "Celebration Dinner", # Ensure this is a valid title
+  category: "Event", # Ensure this is a valid sport type
+  description: "It's Finally Over. I can celebrate Success🙌", # Ensure this is a valid description
+  due_date: Date.today + 1.day,
+  user: User.all.sample
+)
+task3.photos.attach(io: file6, filename: 'Dinner Celebration.jpg', content_type: 'image/jpg')
+if task3.save
+  puts 'Task created successfully.'
+else
+  puts "Task failed to save. Errors: #{task3.errors.full_messages.join(", ")}"
 end
