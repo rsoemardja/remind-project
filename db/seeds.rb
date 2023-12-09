@@ -49,9 +49,9 @@ else
 end
 
 note2 = Note.new(
-  title: 'We have can walk around the park', # Ensure this is a valid title
+  title: 'I can walk around the park', # Ensure this is a valid title
   # category: 'Party', # Ensure this is a valid sport type
-  description: " We can relax at the park", # Ensure this is a valid description
+  description: "I can relax at the park(When the weather isn't trash🚮).", # Ensure this is a valid description
   # due_date: Date.today + 2.day,
   user: User.all.sample
 )
